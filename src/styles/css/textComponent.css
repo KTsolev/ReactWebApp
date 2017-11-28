@@ -1,0 +1,13 @@
+.text-holder {
+  display: flex;
+  flex-flow: column; }
+  .text-holder__article {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    color: #363636;
+    text-align: left;
+    justify-content: space-around;
+    padding: 5px 15px; }
+
+/*# sourceMappingURL=textComponent.css.map */

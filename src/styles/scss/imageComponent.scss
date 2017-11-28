@@ -1,0 +1,25 @@
+.image-holder{
+    display: flex;
+    flex-flow: column;
+    &__image{
+        height: 200px;
+        border: 1px solid #414040;
+        border-radius: 15px;
+        text-align: center;
+        margin: 5px;
+      }
+      &__box {  
+        display: block;
+        -webkit-transition: -webkit-transform 2s;
+        transition: transform 2s;
+    }
+    
+    &__box-rotate {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    &__box-rotate-cw {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+  } 

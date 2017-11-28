@@ -1,0 +1,21 @@
+.image-holder {
+  display: flex;
+  flex-flow: column; }
+  .image-holder__image {
+    height: 200px;
+    border: 1px solid #414040;
+    border-radius: 15px;
+    text-align: center;
+    margin: 5px; }
+  .image-holder__box {
+    display: block;
+    -webkit-transition: -webkit-transform 2s;
+    transition: transform 2s; }
+  .image-holder__box-rotate {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  .image-holder__box-rotate-cw {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
+
+/*# sourceMappingURL=imageComponent.css.map */

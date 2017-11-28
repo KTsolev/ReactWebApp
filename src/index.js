@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/css/index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import TextComponent from './components/textComponent';
-import ImageComponent from './components/imageComponent';
-import mama from './images/mama.jpg';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SlideComponent1 from './components/slide1.js'
+import SlideComponent2 from './components/slide2.js'
+import ParalaxSlide1 from './components/paralaxSlide1.js'
+import ParalaxSlide2 from './components/paralaxSlide1.js'
 
 ReactDOM.render(
-  <div className="container">
-    <ImageComponent src={mama} alt="dentist" klass="imgs"/>
-    <TextComponent header="За Mен" article="Д-р Анна Кирилова-Цолева се дипломира като Доктор по Дентална Медицина през 1984 година в \'Медицинска Академия\' гр. София Факултет по \'Дентална Медицина\' През 1992г защитава поливалентна специалност в същия факултет.Работи като доктор по дентална медицина в \'Институт по зърнени храни и изхранване на населението\' и  \'Институт по Генно Инженерство\'. От 1994 година работи в собствен кабинет със самостоятелна частна практика в гр. Костинброд, област Софийска, България.Редовен член на Български Зъболекарски Съюз." klass="home"/>
-  </div>,
+    <div className="paralax-container col">
+      <ParalaxSlide1 klass='section parallax parallax-1 row' header='За Mен'/>
+      <SlideComponent1 klass='section content row' header='home slide'/>
+      <ParalaxSlide2 klass='section parallax parallax-2 row' header='За Кабинета'/>
+      <SlideComponent2 klass='section content' header='home slide'/>
+    </div>,
   document.getElementById('root'));
 registerServiceWorker();

@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
+import textComponentStyles from '../styles/scss/textComponent.scss';
 
 class TextComponent extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props)
-    this.header = props.header;
-    this.article = props.article;
-    this.klass = props.klass;
-  }
 
   render() {
     return (
-      <div className={this.klass}>
-        <h2>{this.header}</h2>
-        <h3>{this.article}</h3>
+      <div className={this.props.klass}>
+        <h2 className='text-holder__header'>{this.props.header}</h2>
+        <h3 className='text-holder__article'>{this.props.article}</h3>
       </div>
-    );
+          );
   }
 }
 
