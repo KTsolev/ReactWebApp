@@ -2,17 +2,17 @@
     font-family: Helvetica, Arial, sans-serif;
     color: #555;
     padding: 0;
-    margin: 0;    
+    margin: 0;
   }
   .row{
     display: flex;
-    flex-flow: row;   
+    flex-flow: row;
   }
   .col{
     display: flex;
-    flex-flow: column;   
+    flex-flow: column;
   }
-  .container {   
+  .container {
     max-width: 960px;
     margin: 0 auto;
   }
@@ -50,7 +50,7 @@
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.521);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   }
   section.section.parallax-1 {
     background-color: rgba(235, 111, 204, 0.6);
@@ -61,19 +61,3 @@
   *:before, *:after{
       box-sizing: border-box;
   }
-//   @media all and (min-width: 600px) {
-//     section.section h2 {
-//       font-size: 42px;
-//     }
-//     section.section p {
-//       font-size: 20px;
-//     }
-//     section.section.parallax h2 {
-//       font-size: 96px;
-//     }
-//   }
-//   @media all and (min-width: 960px) {
-//     section.section.parallax h2 {
-//       font-size: 160px;
-//     }
-//   }

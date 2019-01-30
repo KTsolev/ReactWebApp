@@ -24,11 +24,11 @@
   }
 
     
-  @media screen and (min-width: 601px) and (max-width: 1024px) {
+  @media screen and (min-width: 601px) {
     #my-bigger-content { 
       display: flex; 
       flex-flow: row;
      }
      #my-smaller-content { display: none; }
      #my-smaller-x2-content { display: none; }
-  }
+    }

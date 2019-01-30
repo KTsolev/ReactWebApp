@@ -8,19 +8,28 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass" : "sass --watch src/styles/scss:src/styles/css" 
+    "sass": "sass --watch src/styles/scss:src/styles/css",
+    "webpack": "webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "google-maps-react": "^1.1.2",
+    "material-ui": "^0.19.4",
     "muicss": "^0.9.30",
     "node-sass": "^4.7.2",
+    "npm": "^6.4.1",
     "react": "^16.0.0",
+    "react-bootstrap": "^0.32.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
-    "sass-loader": "^6.0.6",
-    "material-ui": "^0.19.4"
+    "sass-loader": "^6.0.6"
   },
   "devDependencies": {
+    "babel-plugin-wildcard": "^2.1.2",
+    "file-loader": "^1.1.6",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.9.1"
   }
 }

@@ -2,7 +2,9 @@
   display: flex;
   flex-flow: row;
   align-content: center;
-  -ms-flex-align: center; }
+  -ms-flex-align: center;
+  min-width: 350px;
+  min-height: 350px; }
 
 @media screen and (min-width: 0px) and (max-width: 450px) {
   #my-smaller-x2-content {
@@ -24,7 +26,7 @@
 
   #my-smaller-x2-content {
     display: none; } }
-@media screen and (min-width: 601px) and (max-width: 1024px) {
+@media screen and (min-width: 601px) {
   #my-bigger-content {
     display: flex;
     flex-flow: row; }

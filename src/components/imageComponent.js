@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import imageComponentStyles from '../styles/scss/imageComponent.scss';
+import '../styles/scss/paralaxSlide2.scss';
 
 class ImageComponent extends Component {
 
@@ -7,7 +8,7 @@ class ImageComponent extends Component {
     return (
       <div className={this.props.klass}>
         <img src={this.props.src} className='image-holder__image' alt={this.props.alt} />
-      </div>            
+      </div>
     );
   }
 }
