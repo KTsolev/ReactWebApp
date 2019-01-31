@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import imageComponentStyles from '../styles/scss/imageComponent.scss';
-import '../styles/scss/paralaxSlide2.scss';
+import imageComponentStyles from './imageComponent.scss';
 
 class ImageComponent extends Component {
 

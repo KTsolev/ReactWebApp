@@ -1,17 +1,25 @@
 .slider {
+  display: flex;
+  flex-flow: column;
   width: 100%;
-  margin: 0 auto;
   height: 100%;
+  background-color: blue;
+  margin: 0 auto;
   overflow: hidden;
-  white-space: nowrap; }
-  .slider .slider-wrapper {
+  white-space: nowrap;
+
+  .slider-wrapper {
     position: relative;
     height: 100%;
-    width: 100%; }
-    .slider .slider-wrapper .slide {
+    width: 100%;
+
+    .slide {
       display: inline-block;
       height: 100%;
-      width: 100%; }
+      width: 100%;
+    }
+  }
+}
 
 .slider-right-arrow, .slider-left-arrow {
   height: 50px;
@@ -22,32 +30,45 @@
   background: #f9f9f9;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform ease-in .1s; }
-  .slider-right-arrow:hover, .slider-left-arrow:hover {
+  transition: transform ease-in .1s;
+
+  &:hover {
     transition: transform ease-in .1s;
-    transform: scale(1.1); }
+    transform: scale(1.1)
+  }
+}
 
 .slider-right-arrow {
   position: absolute;
   top: 50%;
   right: 25px;
   z-index: 999;
-  color: #fff; }
-  .slider-right-arrow img {
-    transform: translate(2px, 0); }
-    .slider-right-arrow img:focus {
-      outline: 0; }
+  color: #fff;
+
+  img {
+    transform: translate(2px, 0);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
 
 .slider-left-arrow {
   position: absolute;
   top: 50%;
   left: 25px;
   z-index: 999;
-  color: #fff; }
-  .slider-left-arrow img {
-    transform: translate(-2px, 0); }
-    .slider-left-arrow img:focus {
-      outline: 0; }
+  color: #fff;
+
+  img {
+    transform: translate(-2px, 0);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
 
 .dots-container {
   position: absolute;
@@ -55,16 +76,20 @@
   width: 100%;
   text-align: center;
   z-index: 9999;
-  padding: 5px 0; }
-  .dots-container .dot {
+  padding: 5px 0;
+
+  .dot {
     background: #222;
     display: inline-block;
     padding: 10px;
     margin-right: 5px;
     cursor: pointer;
-    border-radius: 50%; }
-  .dots-container .active {
-    background: #fff; }
+    border-radius: 50%;
+  }
+  .active {
+    background: #fff;
+  }
+}
 
 .autoplay {
   cursor: pointer;
@@ -74,8 +99,9 @@
   padding: 5px 10px;
   background: #ddd;
   color: #333;
-  font-size: 15px; }
-  .autoplay p {
-    margin: 0; }
+  font-size: 15px;
 
-/*# sourceMappingURL=slider.css.map */
+  p {
+    margin: 0
+  }
+}

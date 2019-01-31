@@ -10,7 +10,7 @@ class TextComponent extends Component {
           <h3 className='text-holder__article'>{this.props.article}</h3>
         </div>
       );
-    }
+  }
 }
 
 export default TextComponent;

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/scss/slider.scss';
 
 class LeftArrow extends React.Component {
   handleClick (event) {
-    const {id} = event.target;
-    console.log(id);
+    const { id } = event.target;
     console.log('this is:', this);
   }
+
   render() {
     return (
       <div className="backArrow">

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Slide from './Slide';
-import RightArrow from './RightArrow';
-import LeftArrow from './LeftArrow';
-import '../styles/scss/slider.scss';
+import Slide from '../SlideComponent/Slide';
+import RightArrow from '../LeftArrowComponent/LeftArrow';
+import LeftArrow from '../RightArrowComponent/RightArrow';
+import './slider.scss';
 
 export default class Slider extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Slider extends Component {
     this.state = {
       index: 0,
     };
-    this.images = this._importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+    this.images = this._importAll(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
     this.slides = this.generateSlides();
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
@@ -39,25 +39,19 @@ export default class Slider extends Component {
   }
 
   nextSlide() {
-    this.setState(() => {
-        if (this.state.index > this.slides.length - 1) {
-          this.state.index = 0;
-        }
-
-        this.state.index += 1;
-      });
-    this.forceUpdate();
+    if (this.state.index > this.slides.length - 1) {
+      this.setState({ index: 0 });
+    } else {
+      this.setState({ index: this.state.index + 1 });
+    }
   }
 
   previousSlide() {
-    this.setState(() => {
-        if (this.state.index <= 0) {
-          this.state.index = this.slides.length - 1;
-        }
-
-        this.state.index -= 1;
-      });
-    this.forceUpdate();
+    if (this.state.index < 0) {
+      this.setState({ index: this.slides.length - 1 });
+    } else {
+      this.setState({ index: this.state.index - 1 });
+    }
   }
 
   generateSlides() {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import '../styles/scss/textComponent.scss';
-import  '../styles/css/contactSlide.css';
+import  './contactSlide.scss';
 
-import GoogleMaps from './GoogleMaps';
+import GoogleMaps from '../GoogleMapComponent/GoogleMaps';
 
 class TextComponent extends Component {
 

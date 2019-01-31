@@ -6,7 +6,7 @@ import SlideComponent1 from './components/slide1.js';
 import SlideComponent2 from './components/slide2.js';
 import ParalaxSlide1 from './components/paralaxSlide1.js';
 import ParalaxSlide2 from './components/paralaxSlide2.js';
-import ContactSlide from './components/ContactSlide.js';
+import ContactSlide from './components/ContactSlide/ContactSlide.js';
 import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(

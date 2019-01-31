@@ -4,7 +4,7 @@
   "description": "\"New version of old website\"",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && sass --watch *.scss:*.css",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

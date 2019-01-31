@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slider from './Slider';
+import Slider from './SliderComponent/Slider';
 
 class SlideComponent extends Component {
   constructor(props) {
@@ -7,13 +7,14 @@ class SlideComponent extends Component {
     this.header = props.header;
     this.klass = props.klass;
   }
+
   render() {
     return (
-    <section className={this.klass}>
-        <div className='container'>
-            <Slider />
-        </div>
-    </section>
+      <section className={this.klass}>
+          <div className='container'>
+              <Slider />
+          </div>
+      </section>
     );
   }
 }

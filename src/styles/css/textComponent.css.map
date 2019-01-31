@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,YAAY;EACR,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,MAAM;EAElB,qBAAU;IACT,WAAW,EAAE,MAAM;IACnB,SAAS,EAAE,IAAI;IACf,WAAW,EAAE,MAAM;IACnB,KAAK,EAAE,OAAO;IACd,UAAU,EAAE,IAAI;IAChB,eAAe,EAAE,YAAY;IAC7B,OAAO,EAAE,QAAQ",
-"sources": ["../scss/textComponent.scss"],
-"names": [],
-"file": "textComponent.css"
-}
