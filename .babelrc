@@ -1,3 +1,6 @@
 {
-    "plugins": ["wildcard"]
+    "plugins": ["wildcard"],
+     "presets": [
+      "react-app"
+    ]
 }

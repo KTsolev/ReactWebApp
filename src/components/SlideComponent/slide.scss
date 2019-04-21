@@ -1,34 +1,88 @@
-.home-slide{
+.slide {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+
+  &__images {
     display: flex;
-    flex-flow: row;
-    align-content: center;
-    -ms-flex-align: center;
+    flex: 100% 2;
   }
 
-  @media screen and (min-width: 0px) and (max-width: 450px) {
-    #my-smaller-x2-content { 
-      display: flex; 
-      flex-flow: column;
-    }
-    #my-bigger-content { display: none; }
-    #my-smaller-content { display: none; }
-  }
-  
-  @media screen and (min-width: 451px) and (max-width: 600px) {
-    #my-smaller-content { 
-      display: flex; 
-      flex-flow: column;
-     }
-     #my-bigger-content { display: none; }
-     #my-smaller-x2-content { display: none; }
+  &__img {
+    position: relative;
+    width: 33.33%;
   }
 
-    
-  @media screen and (min-width: 601px) {
-    #my-bigger-content { 
-      display: flex; 
-      flex-flow: row;
-     }
-     #my-smaller-content { display: none; }
-     #my-smaller-x2-content { display: none; }
+  &__img img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+    span {
+      font-size: 22px;
+      font-weight: 700;
+      word-wrap: break-word;
     }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 5px 10px;
+    li {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    span {
+      font-size: 18px;
+      font-weight: 400;
+      word-wrap: break-word;
+    }
+  }
+
+  &__text {
+    height: 250px;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    transition: margin-left 1.5s 0.2s linear;
+
+    &--right {
+      margin-left: 5000px;
+    }
+
+    &--left {
+      margin-left: -5000px;
+    }
+
+    &--animated {
+      margin-left: 0px;
+    }
+  }
+}
+
+
+@media (max-width: 520px) {
+  .slide__images {
+     flex-flow: column;
+  }
+  .slide__img {
+    position: relative;
+    width: 100%;
+  }
+}

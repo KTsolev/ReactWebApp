@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import TextComponent from './textComponent';
-import ImageComponent from './ImageComponent/imageComponent';
+import services from '../data/Services';
 import '../styles/scss/paralaxSlide2.scss';
+
+const { importAll, inView } = services;
 
 class SlideComponent extends Component {
 
@@ -9,31 +10,50 @@ class SlideComponent extends Component {
     super(props);
     this.header = props.header;
     this.klass = props.klass;
-    this.images = this._importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+    this.ids = props.ids;
+    this.images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+    this.calcScroll = this.calcScroll.bind(this);
   }
 
-  _importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
+  componentDidMount() {
+    window.addEventListener('scroll', this.calcScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.calcScroll);
+  }
+
+  calcScroll() {
+    const el = document.getElementById('horizontal-scroll');
+
+    if (inView(el)) {
+      el.scrollLeft += 12;
+    } else {
+      el.scrollLeft = 0;
+    }
   }
 
   render() {
-
-    return (
-     <section className={this.klass}>
-         <div className='container row'>
-           <h2>{this.header}</h2>
-         </div>
-         <div className="row">
-          <ImageComponent src={this.images['DSC01640.jpg']} alt="kabinet" klass="item col"/>
-          <ImageComponent src={this.images['DSC01642.jpg']} alt="kabinet" klass="item col"/>
-          <ImageComponent src={this.images['DSC01644.jpg']} alt="kabinet" klass="item col"/>
-          <ImageComponent src={this.images['DSC01645.jpg']} alt="kabinet" klass="item col"/>
-          <ImageComponent src={this.images['DSC03434.jpg']} alt="kabinet" klass="item col"/>
-         </div>
-     </section>
-    );
+    const bgImages = this.props.bgImages.map((image) => this.images[image]);
+    return bgImages.length > 1 ?
+      <section className='paralax' id={this.props.ids}>
+        <section className='paralax paralax--row' id='horizontal-scroll'>
+           {bgImages.map((image, idx) =>
+             <div
+              id={this.ids}
+              key={idx}
+              style={{ backgroundImage: `url(${image})` }}>
+         </div>)}
+        </section>
+        <h2 className={'paralax__header ' + this.props.klass}>{this.header}</h2>
+      </section>
+      :
+      <section className='paralax'>
+         {bgImages.map((image, idx) => <div id={this.ids} key={idx} style={{
+           backgroundImage: `url(${image})`,
+         }}></div>)}
+        <h2 className={'paralax__header ' + this.props.klass}>{this.header}</h2>
+      </section>;
   }
 }
 

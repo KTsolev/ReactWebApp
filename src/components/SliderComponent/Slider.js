@@ -10,6 +10,7 @@ export default class Slider extends Component {
     this.state = {
       index: 0,
     };
+    // @ts-ignore
     this.images = this._importAll(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
     this.slides = this.generateSlides();
     this.nextSlide = this.nextSlide.bind(this);
@@ -113,7 +114,7 @@ export default class Slider extends Component {
 
   _importAll(r) {
     let images = [];
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
 
     return images;
   }

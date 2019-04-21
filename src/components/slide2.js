@@ -10,10 +10,8 @@ class SlideComponent extends Component {
 
   render() {
     return (
-    <section className={this.klass}>
-        <div className='contaniner'>
-          <TextComponent header="За Кабинета" article="Кабинетът разполага с модерно оборудван дигитален рентген Plaumenka от последно поколение. Д-р Анна Цолева работи с материали от последно поколение на водещи фирми в световната стоматология като GC, Charisma, EsteX, emax, ivoctar, моделно-ляти-ставни-протези, но се усеща като мост." klass="text-holder"/>
-        </div>
+    <section id={this.props.ids} className={this.klass}>
+      <TextComponent header="За Кабинета" article="Кабинетът разполага с модерно оборудван дигитален рентген Plaumenka от последно поколение. Д-р Анна Цолева работи с материали от последно поколение на водещи фирми в световната стоматология като GC, Charisma, EsteX, emax, ivoctar, моделно-ляти-ставни-протези, но се усеща като мост." klass="text-holder"/>
     </section>
     );
   }

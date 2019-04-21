@@ -1,0 +1,62 @@
+.map-holder{
+  height: 550px;
+  width: 100%;
+  position: relative;
+}
+
+.form {
+  width:50%;
+  height:100%;
+  float: right;
+  .sbm {
+    border: 1px ridge #fff;
+    color: #fff;
+    background-color:  rgb(56, 0, 57);
+  }
+
+  input,textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    margin: 15px 0;
+    font-size: 16px;
+  }
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  padding: 15px 0;
+}
+
+.main::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.header {
+  margin: 10px 5px;
+  font-size: 22px;
+}
+
+.list {
+  width:50%;
+  height:100%;
+  float: left;
+  list-style: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: normal;
+  li {
+    color:rgba(56, 0, 57,0.6);
+  }
+}
+
+@media (max-width: 450px) {
+  .list,
+  .form {
+    float: none;
+    width: 100%;
+  }
+}

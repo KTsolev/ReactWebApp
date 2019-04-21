@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import Slider from './SliderComponent/Slider';
+import Slide from './SlideComponent/Slide';
 
 class SlideComponent extends Component {
   constructor(props) {
     super(props);
     this.header = props.header;
     this.klass = props.klass;
+    this.ids = props.ids
   }
 
   render() {
+    console.log(this.props);
     return (
-      <section className={this.klass}>
-          <div className='container'>
-              <Slider />
-          </div>
+      <section id={this.ids} className={this.klass}>
+        <Slide />
       </section>
     );
   }
