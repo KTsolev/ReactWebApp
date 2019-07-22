@@ -10,7 +10,6 @@ class SlideComponent extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <section id={this.ids} className={this.klass}>
         <Slide />

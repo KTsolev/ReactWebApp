@@ -23,26 +23,39 @@ export default class Slide extends Component {
 
   calcScroll() {
     const elements = document.getElementsByClassName('slide__container');
-    console.log(elements);
     for (let i = 0; i < elements.length; i++) {
       let el = elements[i];
-      // if (inView(el, 'slide')) {
-      //   el.classList.add('slide__container--animated');
-      // } else {
-      //   el.classList.remove('slide__container--animated');
-      // }
+      if (inView(el)) {
+        el.classList.add('slide__container--animated');
+      } else {
+        el.classList.remove('slide__container--animated');
+      }
+    }
+  }
+
+  setClases(imgs) {
+    // eslint-disable-next-line default-case
+    switch(imgs.length) {
+      case 1: 
+      return 'slide__img slide__img--full-in-view';
+      case 2: 
+      return 'slide__img slide__img--half-in-view';
+      case 3:
+      return 'slide__img slide__img--tree-in-view';
+      case 4:
+      return 'slide__img slide__img--four-in-view';
+      default:
+      return 'slide__img';
     }
   }
 
   render() {
-    console.log(this.props.ids);
-
     //classnames  index % 2 === 0 ? 'slide__container slide__container--left' : 'slide__container slide__container--right
     return <div id={this.props.ids} className="slide">
       {slides.map((slide, index) => {
           return <div
             key={index}
-            className='slide__container'>
+            className="slide__container">
             <div className="slide__title">
               <span>{slide.slideTitle}</span>
             </div>
@@ -50,18 +63,28 @@ export default class Slide extends Component {
               {slide.slideImgs.map((item, index) =>
                  <div
                   key={index}
-                  className="slide__img">
-                  <img src={this.state.images[item]} alt="img" />
+                  className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
+                  <img src={this.state.images[item.img]} alt="img" />
+                  <div className="slide__remarks-holder">
+                    <span className="slide__remarks">{item.remark}</span>
+                  </div>
                 </div>)}
-              {slide.remarks ? slide.remarks.map((item, index) =>
-                <div
-                key={index}
-                className="slide__img">
-                <span>{item}</span>
-              </div>) : null}
-            </div>
+              {slide.imgs ? slide.imgs.map((item, index) =>
+                <div className="slide__images">
+                  <div
+                    key={index}
+                    className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
+                    <img src={this.state.images[item.img]} alt="img" />
+                    <div className="slide__remarks-holder slide__remarks-holder--contra-rotated">
+                     <span className="slide__remarks">{item.remark}</span>
+                    </div>
+                  </div>
+                </div>
+                ) : null }
+            </div>   
             <div className="slide__text">
               <span>{slide.slideText}</span>
+              <span>{slide.slideRemarks}</span>
               {slide.slideList && slide.slideList.length > 0 ?
                 <ul className="slide__list">
                   {slide.slideList.map((item, indx) =>

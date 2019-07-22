@@ -8,12 +8,37 @@
 
   &__images {
     display: flex;
+    flex-wrap: wrap;
     flex: 100% 2;
+    padding: 1.250em 0;
+    justify-content: space-around;
+  }
+
+  &__images div {
+    display: flex;
+    flex-direction: row;
   }
 
   &__img {
     position: relative;
-    width: 33.33%;
+    width: 30%;
+    max-height: 350px;
+   
+    &--rotated {
+      transform: rotate(90deg);
+    }
+    &--four-in-view {
+      width: 25%;
+    }
+    &--three-in-view {
+      width: 33.33%;
+    }
+    &--half-in-view {
+      width: 50%;
+    }
+    &--full-in-view {
+      width: 100%;
+    }
   }
 
   &__img img {
@@ -21,13 +46,54 @@
     height: 100%;
   }
 
+  &__remarks-holder  {
+    position: absolute;
+    opacity: 0;
+    background-color: #7b7b7b94;
+    left: 25%;
+    bottom: 10px;
+    width: 50%;
+    text-align: center;
+    color: #ff9199;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 1s ease-in-out;
+
+    &--contra-rotated {
+      transform: scale(0) rotate(-90deg);
+      opacity: 0;
+      background-color: #7b7b7b94;
+      left: 50%;
+      bottom: 25%;
+    }
+  }
+
+  .slide__remarks {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img:hover .slide__remarks-holder {
+    border-radius: 0%;
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  &__img:hover .slide__remarks-holder--contra-rotated {
+    border-radius: 0%;
+    opacity: 1;
+    transform: scale(1.5) rotate(-90deg);
+  }
+
   &__title {
     width: 100%;
     height: auto;
     text-align: center;
-    padding: 10px;
+    padding: 2.188em 0.625em;
+    
     span {
-      font-size: 22px;
+      font-size: 1.5em;
       font-weight: 700;
       word-wrap: break-word;
     }
@@ -38,16 +104,17 @@
     padding: 5px 10px;
     li {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 1.250em;
     }
   }
 
   &__text {
     width: 100%;
     height: auto;
-    padding: 10px;
+    padding: 2.188em 0.625em;
+
     span {
-      font-size: 18px;
+      font-size: 1.250em;
       font-weight: 400;
       word-wrap: break-word;
     }
@@ -75,6 +142,9 @@
     }
   }
 }
+.slide__images div {
+   margin: 2.125em 0;
+}
 
 
 @media (max-width: 520px) {
@@ -82,7 +152,11 @@
      flex-flow: column;
   }
   .slide__img {
-    position: relative;
     width: 100%;
+    height: 425px;
+    padding: 10px;
+  }
+  .slide__title span{
+    font-size: 1em;
   }
 }

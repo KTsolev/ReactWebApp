@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import imageComponentStyles from './imageComponent.scss';
-
 class ImageComponent extends Component {
 
   render() {

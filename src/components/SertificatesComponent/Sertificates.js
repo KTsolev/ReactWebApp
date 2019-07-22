@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TextComponent from '../textComponent';
 import ImageComponent from '../ImageComponent/imageComponent';
 import services from '../../data/Services';
 import './Sertificates.scss';

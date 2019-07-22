@@ -8,8 +8,8 @@
 
 .item {
   position: relative;
-  max-width: 220px;
-  max-height: 250px;
+  width: 220px;
+  height: 250px;
   padding: 5px;
 }
 
@@ -25,4 +25,37 @@
   -moz-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
+}
+
+.span-holder {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  list-style-type: none;
+}
+
+.span-holder li span {
+  font-family: "ZnikomitNo24";
+  color: #262729;
+  font-weight: normal;
+  font-size: 20px;
+  opacity: 0;
+}
+
+.animated {
+  opacity: 1 !important;
+  -webkit-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+
+.paralax .paralax--row > .parallaxElem:not(:first-child)  {
+  // position: absolute;
+  // left: 50%;
+  // top: 0;
+  // height: 30em;
+  // width: 20em;
+  // border: 1px solid red;
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-color: transparentize($color: #df39cb, $amount: 0.5); 
 }
