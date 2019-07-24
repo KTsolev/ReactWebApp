@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ImageComponent from '../ImageComponent/imageComponent';
-import services from '../../data/Services';
+import services from '../../Services/Services';
 import './Sertificates.scss';
 
 const { importAll } = services;

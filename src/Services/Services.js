@@ -29,7 +29,7 @@ const inView = (el) => {
 
 const services = {
   importAll,
-  inView,
+  inView
 };
 
 export default services;

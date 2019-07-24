@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import slides from '../../data/slides.json';
-import services from '../../data/Services';
+import services from '../../Services/Services';
 import './slide.scss';
 
 const { importAll, inView } = services;

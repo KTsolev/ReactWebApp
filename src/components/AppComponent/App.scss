@@ -7,6 +7,7 @@
     padding: 0;
     font-size: 16px;
     font-weight: 400;
+    overflow-x: hidden;
     background-color: #92b4ca;
     font-family: Library-soft;
   }
@@ -15,35 +16,35 @@
   font-family: "Great-Vibes";
   font-style: normal;
   font-weight: 400;
-  src: url('../../data/Olho\ de\ Boi.ttf');
+  src: url('../../fonts/Olho\ de\ Boi.ttf');
 }
 
 @font-face {
   font-family: "Library";
   font-style: normal;
   font-weight: 400;
-  src: url('../../data/Library.otf');
+  src: url('../../fonts/Library.otf');
 }
 
 @font-face {
   font-family: "Library-soft";
   font-style: normal;
   font-weight: 400;
-  src: url('../../data/Library-soft.otf');
+  src: url('../../fonts/Library-soft.otf');
 }
 
 @font-face {
   font-family: "ZnikomitNo24";
   font-style: normal;
   font-weight: 400;
-  src: url('../../data/ZnikomitNo24.otf');
+  src: url('../../fonts/ZnikomitNo24.otf');
 }
 
 @font-face {
   font-family: "ZnikomitNo24Thin";
   font-style: normal;
   font-weight: 400;
-  src: url('../../data/ZnikomitNo24Thin.otf');
+  src: url('../../fonts/ZnikomitNo24Thin.otf');
 }
 
 .paralax-container {

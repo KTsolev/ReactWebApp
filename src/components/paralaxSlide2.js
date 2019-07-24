@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import services from '../data/Services';
+import services from '../Services/Services';
 import '../styles/scss/paralaxSlide2.scss';
 import $ from 'jquery';
 

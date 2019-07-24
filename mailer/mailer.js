@@ -8,33 +8,29 @@ const mailjet = require('node-mailjet').connect(
   config.parsed.SECRET_KEY
 );
 
-exports.sendEmail = (messageInfo, text, html) => {
-  try{
-     return mailjet.post('send', { version: 'v3.1' }).request({
+exports.sendEmail = async (messageInfo, html) => {
+     return await mailjet.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
           From: { Email: messageInfo.fromEmail, Name: messageInfo.fromName },
           To: [ { Email: 'ktsolev@yahoo.com', Name: 'Konstantin' } ],
           Subject: messageInfo.subject,
           Email: messageInfo.email,
-          TextPart: text,
+          TextPart: messageInfo.message,
           HTMLPart: html
         }
       ]
     });
-  } catch(err) {
-    console.log(err);
-  }
 };
 
 exports.sendOne = async (templateName, messageInfo, locals) => {
    // @ts-ignore
    const email = new Email({ views: { root: templatesDir, options: { extension: 'jade' } }});
-    return Promise.all([
-      email.render(`${templateName}/email`, locals),
-    ])
-    .then(([html, text]) => {
-      return this.sendEmail(messageInfo, text, html);
-    })
-    .catch(console.error);
+   try {
+     let html = await email.render(`${templatesDir}/${templateName}`, locals)
+     return await this.sendEmail(messageInfo, html);
+   } catch (err) {
+     return err;
+   }
+   
 };
