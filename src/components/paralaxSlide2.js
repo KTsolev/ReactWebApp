@@ -17,7 +17,7 @@ class SlideComponent extends Component {
     this.triggerAnimation = this.triggerAnimation.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     window.addEventListener('scroll', this.calcScroll);
     window.addEventListener('scroll', this.triggerAnimation);
   }
@@ -27,13 +27,12 @@ class SlideComponent extends Component {
     window.removeEventListener('scroll', this.triggerAnimation);
   }
  
-  triggerAnimation() {
+  triggerAnimation(event) {
     const parent = document.getElementsByClassName('span-holder');
     const videoParent = $('.paralax .paralax--row video');
     let scrollTop = $(window).scrollTop();
     let elementOffset = $(parent).offset().top;
     let currentElementOffset = (elementOffset - scrollTop);
-    console.log(scrollTop)
     if (inView(videoParent[0])) {
       videoParent[0].play();
     } else if(inView(videoParent[1])){
@@ -54,7 +53,7 @@ class SlideComponent extends Component {
     this.forceUpdate();
   }
 
-  calcScroll() {
+  calcScroll(event) {
     const el = document.getElementById('horizontal-scroll');
     if (inView(el)) {
       el.scrollLeft += 22;
@@ -71,12 +70,12 @@ class SlideComponent extends Component {
     return <section className='paralax' id={this.props.ids}>
         <section className='paralax paralax--row' id='horizontal-scroll'>
            {bgImages.map((image, idx) => image.endsWith('mp4') ? 
-           <video className={this.ids} muted>
+           <video key={'video'+idx}className={this.ids} muted>
               <source src={image} type="video/mp4"/>
            </video> :
            this.props.movable ? 
-            <div className={this.ids + ' parallaxElem'} key={idx} style={{backgroundImage: `url(${image})`}}></div> :
-            <div className={this.ids} key={idx} style={{backgroundImage: `url(${image})`}}></div>
+            <div className={this.ids + ' parallaxElem'} key={'pe'+idx} style={{backgroundImage: `url(${image})`}}></div> :
+            <div className={this.ids} key={'div'+idx} style={{backgroundImage: `url(${image})`}}></div>
             )}
         </section>
         <h2 className={'paralax__header ' + this.props.klass}>{this.header}</h2>

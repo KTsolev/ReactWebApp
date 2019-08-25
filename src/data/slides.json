@@ -18,7 +18,13 @@
       { "rotated": false, "img": "cmostove22.png" }
     ],
     "slideTitle": "Циркониеви мостове",
-    "slideText": "Циркониеви мостове"
+    "slideText": "Циркониеви мостове - мостовете, които изместват традиционната металокерамика",
+    "slideList": [
+      { "listText": "високо естетични" },
+      { "listText": "не оцветяват в синьо венеца" },
+      { "listText": "не се различават от естествените зъби" },
+      { "listText": "не предизвикват отдръпване на гингивата" }
+    ]
   },
   {
     "slideImgs": [
@@ -26,7 +32,46 @@
       { "rotated": true, "img": "IMG_2474.jpg" },
       { "rotated": true, "img": "IMG_2479.jpg" }],
     "slideTitle": "Гласфибро Влакна",
-    "slideText": "Най-лесния начин да запазите свойте парандонтозни и разклатени зъби.",
+    "slideText": "Гласфибро Влакна - възстановяване на липсващ зъб без пилене на съседните зъби."
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "IMG_3965.jpg" },
+      { "rotated": false, "img": "IMG_3967.jpg" },
+      { "rotated": false, "img": "IMG_3968.jpg" }],
+    "slideTitle": "Адхезивни малки мостове",
+    "slideText": "Идват на помощ отново гласфибровлакната.",
+    "slideList": [
+      {
+        "listText": "без пилене"
+      }
+    ]
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "IMG_0076.jpg" }, 
+      { "rotated": false, "img": "IMG_1682.jpg" },
+      { "rotated": false, "img": "IMG_1684.jpg" },
+      { "rotated": false, "img": "IMG_4339.jpg" }],
+    "slideTitle": "Ставни протези",
+    "slideText": "Протеза е, а се усеща като мост. Ставите не позволяват тяхното подмръдване. Подвижната част се 'закопчава' за неподвижната чрез ставите."
+  },
+  
+  {
+    "slideImgs": [
+      {"rotated": false, "remark": "неправилно лекуван" ,"img": "Unknown-X-20190114-194122-XMBE6C4Q5MSI-3.jpg"}, 
+      {"rotated": false, "remark": "правилно лекуван" ,"img": "Unknown-X-20181108-171253-XFCFL9FDR4GD-4.jpg"}],
+    "slideTitle": "Лечение на пулпити и преиодонтити",
+    "slideText": "Модерната стоматология повелява лечение на зъбите, а не вадене!",
+    "slideRemarks": "Кабинетът разполага с рентгенов апарат за дигитални зъбни снимки"
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "DSC3576.jpg" },
+      { "rotated": false, "img": "IMG_1649.jpg" },
+      { "rotated": false, "img": "IMG_1653.jpg" }],
+    "slideTitle": "Шинирани зъби",
+    "slideText": "Най-лесния и елегантен начин да запазите своите парандонтозни и разклатени зъби.",
     "slideList": [
       {
         "listText": "без вадене"
@@ -47,48 +92,6 @@
   },
   {
     "slideImgs": [
-      { "rotated": false, "img": "IMG_3965.jpg" },
-      { "rotated": false, "img": "IMG_3967.jpg" },
-      { "rotated": false, "img": "IMG_3968.jpg" }],
-    "slideTitle": "Адхезивни малки мостове",
-    "slideText": "Идват на промоция с гласфибровлакната.",
-    "slideList": [
-      {
-        "listText": "без пилене"
-      },
-      {
-        "listText": "без мостове"
-      }
-    ]
-  },
-  {
-    "slideImgs": [
-      { "rotated": false, "img": "IMG_0076.jpg" }, 
-      { "rotated": false, "img": "IMG_1682.jpg" },
-      { "rotated": false, "img": "IMG_1684.jpg" },
-      { "rotated": false, "img": "IMG_4339.jpg" }],
-    "slideTitle": "Ставни протези",
-    "slideText": "Протеза е, а се усеща като мост. Ставите не позволяват тяхното помръдване"
-  },
-  
-  {
-    "slideImgs": [
-      {"rotated": false, "remark": "неправилно лекуван" ,"img": "Unknown-X-20190114-194122-XMBE6C4Q5MSI-3.jpg"}, 
-      {"rotated": false, "remark": "правилно лекуван" ,"img": "Unknown-X-20181108-171253-XFCFL9FDR4GD-4.jpg"}],
-    "slideTitle": "Лечение на пулпити и преиодонтити",
-    "slideText": "Модерната стоматология повелява лечение на зъбите, а не вадене!",
-    "slideRemarks": "Кабинетът разполага с рентгенов апарат за зъбни снимки"
-  },
-  {
-    "slideImgs": [
-      { "rotated": false, "img": "DSC3576.jpg" },
-      { "rotated": false, "img": "IMG_1649.jpg" },
-      { "rotated": false, "img": "IMG_1653.jpg" }],
-    "slideTitle": "Шинирани зъби",
-    "slideText": "Шинирани зъби"
-  },
-  {
-    "slideImgs": [
       { "rotated": false, "img": "DSC4260.jpg" },
       { "rotated": false, "img": "DSC4261.jpg" },
       { "rotated": true, "img": "IMG_0455.jpg" }],
@@ -97,17 +100,14 @@
   },
   {
     "slideImgs": [{ "rotated": false, "img": "IMG_0142.jpg" }],
-    "slideTitle": "Цветни детски пломби",
-    "slideText": "Цветни детски пломби"
+    "slideTitle": "Цветни детски пломби"
   },
   {
     "slideImgs": [{ "rotated": false, "img": "Възтановяване на зъбна редица с моделно лята протеза 1 Случай 2.jpg" }],
-    "slideTitle": "Възтановяване на зъбна редица с моделно лята протеза.",
-    "slideText": "Възтановяване на зъбна редица с моделно лята протеза."
+    "slideTitle": "Възтановяване на зъбна редица с моделно лята протеза."
   },
   {
     "slideImgs": [{ "rotated": false, "img": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б).jpg" }],
-    "slideTitle": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б)",
-    "slideText": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б)."
+    "slideTitle": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б)"
   }
 ]

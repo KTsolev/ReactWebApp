@@ -55,7 +55,7 @@ export default class Slide extends Component {
       {slides.map((slide, index) => {
           return <div
             key={index}
-            className="slide__container">
+            className={index >= 1 && index % 2 === 0 ? "slide__container slide__container--left" : "slide__container slide__container--right" }>
             <div className="slide__title">
               <span>{slide.slideTitle}</span>
             </div>

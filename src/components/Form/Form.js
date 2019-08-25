@@ -106,14 +106,14 @@ class Form extends Component {
           this.context.toggleMessageBox();
           setTimeout((() => {
             this.context.toggleMessageBox();
-          }).bind(this), 3000);
+          }), 3000);
          }
        }).catch((error) => {
           this.context.setMessage('Съобщението ви не бе изпратено! Моля опитайте по късно!');
           this.context.toggleMessageBox();
           setTimeout((() => {
             this.context.toggleMessageBox();
-          }).bind(this), 3000);
+          }), 3000);
        });
     }
 
@@ -125,7 +125,7 @@ class Form extends Component {
               || this.state.email.errorMessage
               || this.state.subject.errorMessage
               || this.state.message.errorMessage);
-             return <form className="form" role="form" onSubmit={this.handleSubmit}>
+             return <form className="form" onSubmit={this.handleSubmit}>
               <input 
                 className={this.state.name.errorMessage ? "col-sm-4 form-control error" : "col-sm-4 form-control"}
                 onChange={this.handleChange}

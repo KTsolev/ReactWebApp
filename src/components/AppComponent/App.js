@@ -5,12 +5,10 @@ import ParalaxSlide2 from '../paralaxSlide2.js';
 import ContactSlide from '../ContactComponent/ContactSlide.js';
 import SertificatesSlide from '../SertificatesComponent/Sertificates.js';
 import toothImg from '../../images/happytooth.png';
-import services from '../../Services/Services';
 import MessageBox from '../MessageBox/MessageBox';
 import store from '../Store/StoreProvider';
 import './App.scss';
 
-const { inView } = services;
 const { StoreProvider } = store;
 // @ts-ignore
 class App extends Component {
@@ -19,7 +17,7 @@ class App extends Component {
     this.state = {
       toggleMenu: false
     };    
-    this.scrollTo = this.scrollTo.bind(this);
+    this.To = this.scrollTo.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.updatePredicate = this.updatePredicate.bind(this);
   }
@@ -111,7 +109,15 @@ class App extends Component {
               <ParalaxSlide2 
                 ids='cabinet' 
                 klass='paralax__header--lighter' 
-                bgImages={['DSC01640.jpg', 'DSC01642.jpg', 'DSC01643.jpg', 'DSC01644.jpg', 'DSC01645.jpg','IMG_9475.mp4', 'IMG_9481.mp4', 'IMG_9480.mp4']}
+                bgImages={[
+                  'DSC01640.jpg',
+                  'DSC01642.jpg', 
+                  'DSC01643.jpg', 
+                  'DSC01644.jpg', 
+                  'DSC01645.jpg',
+                  'IMG_9475.mp4',
+                  'IMG_9481.mp4', 
+                  'IMG_9480.mp4']}
                 header='За Кабинета'/>
               <ParalaxSlide2 
                 ids='certificates' 

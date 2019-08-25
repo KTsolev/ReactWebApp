@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  './ContactSlide.scss';
 import GoogleMaps from '../GoogleMapComponent/GoogleMaps';
 import Form from '../Form/Form';
+
 class ContactsSlide extends Component {
   constructor(props) {
     super(props);

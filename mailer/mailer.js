@@ -24,13 +24,8 @@ exports.sendEmail = async (messageInfo, html) => {
 };
 
 exports.sendOne = async (templateName, messageInfo, locals) => {
-   // @ts-ignore
-   const email = new Email({ views: { root: templatesDir, options: { extension: 'jade' } }});
-   try {
-     let html = await email.render(`${templatesDir}/${templateName}`, locals)
-     return await this.sendEmail(messageInfo, html);
-   } catch (err) {
-     return err;
-   }
-   
+    // @ts-ignore
+    const email = new Email({ views: { root: templatesDir, options: { extension: 'jade' } }});
+    let html = await email.render(`${templatesDir}/${templateName}`, locals)
+    return await this.sendEmail(messageInfo, html);
 };

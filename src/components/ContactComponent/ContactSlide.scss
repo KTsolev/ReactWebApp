@@ -21,10 +21,11 @@
   font-size: 32px;
 }
 
-.list {
+.calendar {
   width:50%;
   height:100%;
   float: left;
+  background-color: #fff;
   list-style: none;
   padding: 10px 25px;
   font-size: 14px;
@@ -35,7 +36,7 @@
 }
 
 @media (max-width: 450px) {
-  .list,
+  .calendar,
   .form {
     float: none;
     width: 100%;

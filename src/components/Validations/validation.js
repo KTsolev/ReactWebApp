@@ -1,4 +1,4 @@
-import { required, min } from 'data-validations';
+import { required, min, max } from 'data-validations';
 
 const onlyLetters = (value) => { 
     let regex = /^[a-zA-Z\s]|[а-яА-Я\s]+$/;
@@ -13,17 +13,19 @@ const validEmail = (value) => {
 const formValidations = {
     name: [
         required('Име е задължително поле!'),
-        min(2, 'Име трябва да е минимум 2 символа!'),
+        min(2, 'Името трябва да е минимум 2 символа!'),
+        max(30, 'Името трябва да е максимум 30 символа!'),
         onlyLetters
     ],
     email: [
-        required('Име е задължително поле!'),
-        min(2, 'Име трябва да е минимум 2 символа!'),
+        required('Имейлът е задължително поле!'),
+        min(2, 'Имейлът трябва да е минимум 2 символа!'),
+        max(20, 'Имеилът трябва да е максимум 20 символа!'),
         validEmail
     ],
     subject: [
-        required('Тема е задължително поле!'),
         min(2, 'Тема трябва да е минимум 2 символа!'),
+        max(60, 'Тема трябва да е максимум 60 символа!'),
     ],
     message:[
         required('Съобщение е задължително поле!'),

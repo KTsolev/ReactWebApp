@@ -130,17 +130,18 @@
     transition: margin-left 1.5s 0.2s linear;
 
     &--right {
-      margin-left: 5000px;
+      margin-left: 1500px;
     }
 
     &--left {
-      margin-left: -5000px;
+      margin-left: -1500px;
     }
 
     &--animated {
       margin-left: 0px;
     }
   }
+
 }
 .slide__images div {
    margin: 2.125em 0;
