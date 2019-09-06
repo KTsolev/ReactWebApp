@@ -1,96 +1,84 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const Joi = require('joi');
-const schema = require('./validations');
-// const authRoute = require('./MailController.js');
-const app = express();
-
+const Hapi = require('@hapi/hapi');
+const Vision = require('@hapi/vision');
+const Pug = require('jade');
+const Joi = require('@hapi/joi');
+const common = require('./validations');
+const fs = require('fs');
 const mailer = require('./mailer');
+const os = require('os');
 
-const whitelist = ['http://localhost:3000', 'localhost:8000' ];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
+const init = async () => {
 
-  
-app.use(bodyParser.json());
-app.use(errorHandler);
-app.use(logErrors);
-
-// Starting point of the server
-function main() {
-    const port = process.env.PORT || 8000;
-    app.set('views', __dirname + '/views');
-  
-    app.set('view engine', 'jade');
-    app.use(bodyParser.urlencoded({ // Middleware
-      extended: true,
-    }));
-    app.use(bodyParser.json());
-    app.use(cors());
-
-    app.post('/sendmail', async (req, res, next) => {
-      res.set('Content-Type', 'application/json');
-      
-      const locals = {
-        name: req.body.name,
-        email: req.body.email,
-        subject: req.body.subject,
-        message: req.body.message,
-       };
-
-      const validationOptions = {
-        abortEarly: false, // abort after the last validation error
-        allowUnknown: true, // allow unknown keys that will be ignored
-        stripUnknown: true // remove unknown keys from the validated data
-     };
-       
-     Joi.validate(req.body, schema, validationOptions,function (err, value) {
-        console.log(req.body)
-        if (err) {
-          next (err);
-        } else {
-          return res.json({
-            status: 'success',
-            message: 'User message was successfully sent',
-            data: Object.assign({}, value)
-          });
-        }
-      });
-
-      const messageInfo = {
-        email: req.body.email, fromEmail: 'ktsolev@gmail.com',
-        fromName: 'Dental-Info', subject: req.body.subject
-      };
-    
-      await mailer.sendOne('email', messageInfo, locals);
-      res.send({ success: true, message:'Email sent.' });
-  
+    const server = Hapi.server({
+        port: 8000,
+        host: 'localhost'
     });
-  
-    app.listen(port, () => console.log(`Server is listening on port: ${port}`));
-  }
-  
- function errorHandler(err, req, res, next) {
-    if (res.headersSent) {
-      return next(err)
-    }
-    res.status(500)
-    res.render('error', { error: err });
- }
 
- function logErrors (err, req, res, next) {
-  console.error(err.stack)
-  next(err)
+    await server.start();
+    await server.register(Vision);
+    
+    server.views({
+      engines: {
+        jade: Pug
+      },
+      relativeTo: __dirname,
+      path: 'views',
+      layout: 'email'
+    })
+    
+    console.log('Server running on %s', server.info.uri);
+    
+    await server.route({
+      method: 'POST',
+      path: '/sendmail',
+      options: {
+        validate: {
+          payload: {
+            name: Joi.string().regex(common.onlyLetters, 'name').min(2).max(30).required(),
+            email: Joi.string().regex(common.validEmail, 'email').min(2).max(20).required(),
+            subject: Joi.string().alphanum().min(2).max(60),
+            message: Joi.string().min(2).required()
+          },
+          failAction: async (request, h, err) => {
+            if (process.env.NODE_ENV === 'production') {
+                console.error('ValidationError:', err.message);
+                throw h.badRequest(`Invalid request payload input`);
+            } else {
+                writeToFile(err);
+                throw err;
+            }
+        }
+        },
+      },
+      handler: async function (request, h) {
+        
+        const data = {
+          name: request.payload.name,
+          email: request.payload.email,
+          subject: request.payload.subject,
+          message: request.payload.message,
+         };
+          
+          const messageInfo = {
+            email: data.email, fromEmail: 'ktsolev@gmail.com',
+            fromName: 'Dental-Info', subject: data.subject
+          };
+          
+          try {
+            await mailer.sendOne('email', messageInfo, data);
+          } catch (error) {
+            writeToFile(error);
+          }
+          return h.view('email', { name: data.name, message: data.message, email: data.email });
+      }
+    });
+};
+
+function writeToFile (data) {
+  const filename = __dirname + '/views/error.log';
+  fs.appendFile(filename, data + os.EOL , (error) => {
+    if (error) throw error;
+  });
 }
-  
-main();
- 
- 
+
+init();
