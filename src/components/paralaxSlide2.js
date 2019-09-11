@@ -28,7 +28,7 @@ class SlideComponent extends Component {
   }
  
   triggerAnimation(event) {
-    const parent = document.getElementsByClassName('span-holder');
+    const parent = document.getElementsByClassName('span__holder');
     const videoParent = $('.paralax .paralax--row video');
     let scrollTop = $(window).scrollTop();
     let elementOffset = $(parent).offset().top;
@@ -42,13 +42,13 @@ class SlideComponent extends Component {
     } 
 
     if(inView(parent[0]) && (currentElementOffset >= 180 && currentElementOffset <= 330)){
-      $('.span-holder > li').each((i, li) => {
-        $('.span-holder > li > span').each((s, sp) => {
+      $('.span__holder > li').each((i, li) => {
+        $('.span__holder > li > span').each((s, sp) => {
           setTimeout(() => $(sp).addClass('animated'), s * 100);
         });
       });
     } else {
-      $('.span-holder > li > span').removeClass('animated');
+      $('.span__holder > li > span').removeClass('animated');
     }
     this.forceUpdate();
   }
@@ -67,8 +67,8 @@ class SlideComponent extends Component {
     const textAnim = this.props.textAnim ? this.props.textAnim.map((text, index) => {
       return <li key={index}>{text.split('').map((l,i) => <span key={i}>{l}</span>)}</li>;
     }) : [];
-    return <section className='paralax' id={this.props.ids}>
-        <section className='paralax paralax--row' id='horizontal-scroll'>
+    return <section className="paralax" id={this.props.ids}>
+        <section className="paralax paralax--row" id="horizontal-scroll">
            {bgImages.map((image, idx) => image.endsWith('mp4') ? 
            <video key={'video'+idx}className={this.ids} muted>
               <source src={image} type="video/mp4"/>
@@ -78,8 +78,8 @@ class SlideComponent extends Component {
             <div className={this.ids} key={'div'+idx} style={{backgroundImage: `url(${image})`}}></div>
             )}
         </section>
-        <h2 className={'paralax__header ' + this.props.klass}>{this.header}</h2>
-        {textAnim && textAnim.length > 0 ? <ul className="span-holder">{textAnim}</ul> : null}
+        <h2 className={this.props.klass}>{this.header}</h2>
+        {textAnim && textAnim.length > 0 ? <ul className="span__holder">{textAnim}</ul> : null}
       </section>;
   }
 }

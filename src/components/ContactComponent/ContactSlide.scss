@@ -1,5 +1,5 @@
 .map-holder{
-  height: 550px;
+  height: 34.375em;
   width: 100%;
   position: relative;
 }
@@ -16,9 +16,9 @@
   display: table;
 }
 
-.header {
-  margin: 10px 5px;
-  font-size: 32px;
+.header h3 {
+  margin: 0.625em 0.313em;
+  font-size: 2em;
 }
 
 .calendar {
@@ -40,5 +40,9 @@
   .form {
     float: none;
     width: 100%;
+  }
+  .header h3,
+  .paralax__header {
+    font-size: 1.125em;
   }
 }

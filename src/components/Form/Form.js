@@ -9,6 +9,9 @@ const { StoreContext } = store;
 class Form extends Component {
     static context = StoreContext;
     constructor(props) {
+      console.log(process.env);
+  
+      console.log(process.env.NODE_ENV);
         super(props);
         this.state = {
             email: {

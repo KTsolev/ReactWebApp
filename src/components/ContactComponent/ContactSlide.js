@@ -18,8 +18,8 @@ class ContactsSlide extends Component {
     return (
       <div id={this.props.ids} className={this.props.klass}>
         <div className="header">
-          <h3 className='text-holder__header header'>Бладоря за вашето внимание!</h3>
-          <h4 className='text-holder__header header'>Ако имате въпроси може да направите запитване във формата по-долу.</h4>
+          <h3>Бладоря за вашето внимание!</h3>
+          <h3>Ако имате въпроси може да направите запитване във формата по-долу.</h3>
         </div>
         <div className="main">
          <Form />

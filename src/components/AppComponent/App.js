@@ -121,7 +121,7 @@ class App extends Component {
                 header='За Кабинета'/>
               <ParalaxSlide2 
                 ids='certificates' 
-                klass='paralax__header' 
+                klass='paralax__header'
                 movable={true}
                 bgImages={['graduation.jpg']} 
                 header='Сертификати'/>
@@ -130,7 +130,7 @@ class App extends Component {
                 header="Сертификати"/>
               <ParalaxSlide2 
                 ids="contact1"
-                klass='paralax__header paralax__header--bottom-aligned' 
+                klass='paralax__header' 
                 textAnim={[
                   'Можете да се свържете с мен', 
                   'чрез следните контакти:', 

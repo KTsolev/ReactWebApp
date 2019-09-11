@@ -72,6 +72,7 @@
   max-width: 1300px;
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 .paralax {
@@ -87,12 +88,12 @@
   }
 
   &__header {
-    font-size: 40px;
+    font-size: 2.500em;
     font-family: ZnikomitNo24Thin;
     padding: 20px;
     color: #444;
     position: absolute;
-    top: 10px;
+    top: 0.625em;
     width: 100%;
     text-align: center;
 
@@ -119,10 +120,9 @@
     height: 750px;
     min-width: 300px;
     background-attachment: fixed;
-    -moz-background-size:auto 750px;
-    -webkit-background-size:auto 750px;
-    background-size:auto 750px;
-    background-position: top center;
+    background-size: cover;
+    background-position: center center;
+    background-origin: content-box;
     background-repeat: no-repeat;
   }
 }
@@ -283,22 +283,32 @@
 }
 
 .navbar li a {
-  font-size: 18px;
+  font-size: 1.125em;
   color: #555;
-  padding: 10px;
+  padding: 0.625em;
   text-decoration: none;
 }
 
 .navbar li i {
-  font-size: 22px;
+  font-size: 1.375em;
   border: 1px #e0e0e0 solid;
   border-radius: 50%;
   color: #e0e0e0;
-  padding: 10px;
+  padding: 0.625em;
 }
 
+.navbar li a,
+.navbar li a {
+  width: 100%;
+  height: 100%;
+}
 
 @media (max-width: 450px) {
+
+  .paralax__header {
+    font-size: 1.875em;
+  }
+  
   .menu__toggle {
     display: none;
   }

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const importAll = (r) => {
   let images = [];
   r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
@@ -8,10 +10,11 @@ const importAll = (r) => {
 const inView = (el) => {
   const scroll = window.scrollY || window.pageYOffset;
   const boundsTop = el.getBoundingClientRect().top + scroll;
-
+  const innerHeight = $(el).innerHeight();
+  console.log(window.innerHeight)
   const viewport = {
     top: scroll,
-    bottom: scroll + window.innerHeight,
+    bottom: scroll + innerHeight  
   };
 
   const bounds = {

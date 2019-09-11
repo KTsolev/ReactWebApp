@@ -27,14 +27,14 @@
   transform: scale(1.2);
 }
 
-.span-holder {
+.span__holder {
   position: absolute;
   left: 40%;
   top: 30%;
   list-style-type: none;
 }
 
-.span-holder li span {
+.span__holder li span {
   font-family: "ZnikomitNo24";
   color: #262729;
   font-weight: normal;
@@ -46,6 +46,12 @@
   opacity: 1 !important;
   -webkit-transition: opacity 1s ease-in;
   transition: opacity 1s ease-in;
+}
+
+@media (max-width: 450px) {
+  .span__holder {
+    left: 10%;
+  }
 }
 
 .paralax .paralax--row > .parallaxElem:not(:first-child)  {

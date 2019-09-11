@@ -1,13 +1,19 @@
-.text-holder{
+.text-holder {
 
-   &__article{
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    color: #363636;
-    text-align: left;
-    justify-content: space-around;
-    padding: 5px 15px;
+   &__article {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: normal;
+        color: #363636;
+        text-align: left;
+        justify-content: space-around;
+        padding: 5px 15px;
+        text-align: justify;
+        letter-spacing: -1px;
+    }
+    
+    &__header {
+        padding: 1em 0;
     }
 
 }
