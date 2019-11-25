@@ -8,10 +8,10 @@ const importAll = (r) => {
 };
 
 const inView = (el) => {
+  if(!el) return;
   const scroll = window.scrollY || window.pageYOffset;
   const boundsTop = el.getBoundingClientRect().top + scroll;
   const innerHeight = $(el).innerHeight();
-  console.log(window.innerHeight)
   const viewport = {
     top: scroll,
     bottom: scroll + innerHeight  

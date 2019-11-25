@@ -1,0 +1,38 @@
+.sertificates {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  max-height: 280px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.5s ease-out;
+  -moz-transition: max-height 0.5s ease-out;
+  -o-transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-out;
+
+  &--expanded {
+    max-height: 210em;
+  }
+}
+
+.sertificate {
+  width: auto;
+  margin: 0 auto;
+  height: 100%;
+  padding: 2px;
+}
+
+.expand-area {
+  display: block;
+  color: #222;
+  height: 50px;
+  width: 50px;
+  font-size: 26px;
+  text-align: center;
+  margin: 10px auto;
+}
+
+@media (max-width: 520px) {
+  .sertificates--expanded {
+    max-height: 450em;
+  }
+}

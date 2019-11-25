@@ -39,18 +39,7 @@ class SlideComponent extends Component {
       videoParent[1].play();
     } else if(inView(videoParent[2])){
       videoParent[2].play();
-    } 
-
-    if(inView(parent[0]) && (currentElementOffset >= 180 && currentElementOffset <= 330)){
-      $('.span__holder > li').each((i, li) => {
-        $('.span__holder > li > span').each((s, sp) => {
-          setTimeout(() => $(sp).addClass('animated'), s * 100);
-        });
-      });
-    } else {
-      $('.span__holder > li > span').removeClass('animated');
     }
-    this.forceUpdate();
   }
 
   calcScroll(event) {
@@ -69,7 +58,7 @@ class SlideComponent extends Component {
     }) : [];
     return <section className="paralax" id={this.props.ids}>
         <section className="paralax paralax--row" id="horizontal-scroll">
-           {bgImages.map((image, idx) => image.endsWith('mp4') ? 
+           {bgImages.map((image, idx) => image && image.endsWith('mp4') ? 
            <video key={'video'+idx}className={this.ids} muted>
               <source src={image} type="video/mp4"/>
            </video> :

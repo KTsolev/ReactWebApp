@@ -7,9 +7,11 @@ import SertificatesSlide from '../SertificatesComponent/Sertificates.js';
 import toothImg from '../../images/happytooth.png';
 import MessageBox from '../MessageBox/MessageBox';
 import store from '../Store/StoreProvider';
+import services from '../../Services/Services';
 import './App.scss';
 
 const { StoreProvider } = store;
+const { inView } = services;
 // @ts-ignore
 class App extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class App extends Component {
     this.state = {
       toggleMenu: false
     };    
-    this.To = this.scrollTo.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.updatePredicate = this.updatePredicate.bind(this);
   }
@@ -39,14 +41,14 @@ class App extends Component {
   }
 
   scrollTo(event) {
-    event.stopPropagation();
-    const fromTop = window.scrollY;
     const section = document.querySelector(event.target.hash);
+
+    console.log(section);
     if(!section) return;
-    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-      section.classList.add('current');
+    if (!inView(section)) {
+      section.scrollIntoView(true);
     } else {
-      section.classList.remove('current');
+      section.scrollIntoView(false);
     }
   }
 
@@ -110,14 +112,11 @@ class App extends Component {
                 ids='cabinet' 
                 klass='paralax__header--lighter' 
                 bgImages={[
-                  'DSC01640.jpg',
-                  'DSC01642.jpg', 
-                  'DSC01643.jpg', 
-                  'DSC01644.jpg', 
-                  'DSC01645.jpg',
-                  'IMG_9475.mp4',
-                  'IMG_9481.mp4', 
-                  'IMG_9480.mp4']}
+                  'IMG_0516.jpg',
+                  'IMG_0515.jpg', 
+                  'IMG_0511.jpg', 
+                  'IMG_0510.jpg', 
+                  'IMG_0509.jpg']}
                 header='За Кабинета'/>
               <ParalaxSlide2 
                 ids='certificates' 
@@ -127,9 +126,9 @@ class App extends Component {
                 header='Сертификати'/>
               <SertificatesSlide
                 klass='section content' 
-                header="Сертификати"/>
+                header='Сертификати'/>
               <ParalaxSlide2 
-                ids="contact1"
+                ids='contact'
                 klass='paralax__header' 
                 textAnim={[
                   'Можете да се свържете с мен', 
@@ -143,7 +142,6 @@ class App extends Component {
                 bgImages={['writing-pad.jpg']} 
                 header='Контакти'/>
               <ContactSlide 
-                ids="contact2"
                 klass='section content'/>
             </div>
             <MessageBox />

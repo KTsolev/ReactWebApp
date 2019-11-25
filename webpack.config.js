@@ -21,16 +21,22 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react'],
-                  },
-              },
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: 'babel-loader',
+              plugins: [
+                "@babel/preset-es2017",
+                "@babel/plugin-proposal-class-properties", 
+                "@babel/plugin-syntax-dynamic-import",
+                ["transform-class-properties", { "spec": true }],
+                "@babel/plugin-syntax-class-properties",
+                "@babel/plugin-transform-arrow-functions",
+                "@babel/plugin-transform-modules-commonjs"
+              ]
+            },
         ],
       },
     stats: {
         colors: true,
-      },
-    devtool: 'source-map',
+      }
   };

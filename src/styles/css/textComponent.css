@@ -1,0 +1,16 @@
+.text-holder__article {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  color: #363636;
+  text-align: left;
+  justify-content: space-around;
+  padding: 5px 15px;
+  text-align: justify;
+  letter-spacing: -1px;
+}
+.text-holder__header {
+  padding: 1em 0;
+}
+
+/*# sourceMappingURL=textComponent.css.map */

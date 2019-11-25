@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const StoreContext = React.createContext();
+const StoreContext = React.createContext({});
 
-class StoreProvider extends Component {
-  state = {
-    showMessageBox: false,
-    message: null,
-};
+class StoreProvider extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showMessageBox: false,
+      message: null,
+    };
+  }
 render() {
     return (
     <StoreContext.Provider value={{

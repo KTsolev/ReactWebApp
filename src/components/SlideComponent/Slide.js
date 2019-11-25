@@ -3,6 +3,8 @@ import slides from '../../data/slides.json';
 import services from '../../Services/Services';
 import './slide.scss';
 
+const uuidv1 = require('uuid/v1');
+
 const { importAll, inView } = services;
 
 export default class Slide extends Component {
@@ -15,6 +17,10 @@ export default class Slide extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.calcScroll.bind(this));
+    const firstEl = document.getElementsByClassName('slide__container')[0];
+    firstEl.classList.remove('slide__container--left');
+    firstEl.classList.remove('slide__container--right');
+
   }
 
   componentWillUnmount() {
@@ -54,25 +60,25 @@ export default class Slide extends Component {
     return <div id={this.props.ids} className="slide">
       {slides.map((slide, index) => {
           return <div
-            key={index}
-            className={index >= 1 && index % 2 === 0 ? "slide__container slide__container--left" : "slide__container slide__container--right" }>
+            key={uuidv1()}
+            className={index > 1 && index % 2 === 0 ? "slide__container slide__container--left" : "slide__container slide__container--right" }>
             <div className="slide__title">
               <span>{slide.slideTitle}</span>
             </div>
             <div className="slide__images">
-              {slide.slideImgs.map((item, index) =>
+              {slide.slideImgs.map((item) =>
                  <div
-                  key={index}
+                  key={uuidv1()}
                   className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
                   <img src={this.state.images[item.img]} alt="img" />
                   <div className="slide__remarks-holder">
                     <span className="slide__remarks">{item.remark}</span>
                   </div>
                 </div>)}
-              {slide.imgs ? slide.imgs.map((item, index) =>
+              {slide.imgs ? slide.imgs.map((item) =>
                 <div className="slide__images">
                   <div
-                    key={index}
+                    key={uuidv1()}
                     className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
                     <img src={this.state.images[item.img]} alt="img" />
                     <div className="slide__remarks-holder slide__remarks-holder--contra-rotated">
@@ -87,8 +93,8 @@ export default class Slide extends Component {
               <span>{slide.slideRemarks}</span>
               {slide.slideList && slide.slideList.length > 0 ?
                 <ul className="slide__list">
-                  {slide.slideList.map((item, indx) =>
-                    <li key={indx}>{item.listText}</li>
+                  {slide.slideList.map((item) =>
+                    <li key={uuidv1()}>{item.listText}</li>
                   )}
                 </ul> : null}
             </div>

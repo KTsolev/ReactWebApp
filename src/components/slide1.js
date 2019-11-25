@@ -12,13 +12,13 @@ class SlideComponent extends Component {
     };
 
     this.imgs = {
-      certJPG: require('../images/certificates/23.jpg'),
+      certJPG: require('../images/23.jpg'),
     };
   }
 
   render() {
     return (
-      <section className={this.klass} ref='header'>
+      <section id={this.props.ids} className={this.klass} ref='header'>
           <div className='contaniner'>
             <div className='container__img'>
               <ImageComponent 

@@ -13,7 +13,7 @@
       { "rotated": false, "img": "cmostove21.png" },
       { "rotated": false, "img": "cmostove23.png" },
       { "rotated": false, "img": "cmostove25.png" },     
-      { "rotated": true, "img": "IMG_1380.jpg" }, 
+      { "rotated": false, "img": "IMG_1380.jpg" }, 
       { "rotated": false, "img": "IMG_1407.jpg" },
       { "rotated": false, "img": "cmostove22.png" }
     ],
@@ -51,8 +51,7 @@
     "slideImgs": [
       { "rotated": false, "img": "IMG_0076.jpg" }, 
       { "rotated": false, "img": "IMG_1682.jpg" },
-      { "rotated": false, "img": "IMG_1684.jpg" },
-      { "rotated": false, "img": "IMG_4339.jpg" }],
+      { "rotated": false, "img": "IMG_1684.jpg" }],
     "slideTitle": "Ставни протези",
     "slideText": "Протеза е, а се усеща като мост. Ставите не позволяват тяхното подмръдване. Подвижната част се 'закопчава' за неподвижната чрез ставите."
   },
@@ -68,7 +67,6 @@
   {
     "slideImgs": [
       { "rotated": false, "img": "DSC3576.jpg" },
-      { "rotated": false, "img": "IMG_1649.jpg" },
       { "rotated": false, "img": "IMG_1653.jpg" }],
     "slideTitle": "Шинирани зъби",
     "slideText": "Най-лесния и елегантен начин да запазите своите парандонтозни и разклатени зъби.",
@@ -93,8 +91,8 @@
   {
     "slideImgs": [
       { "rotated": false, "img": "DSC4260.jpg" },
-      { "rotated": false, "img": "DSC4261.jpg" },
-      { "rotated": true, "img": "IMG_0455.jpg" }],
+      { "rotated": false, "img": "Възтановяване на зъбна редица със стъкловидна подпора ZX-27 (конструкция+подпора 2) Случай 2.jpg" },
+      { "rotated": true, "img": "Възтановяване на зъбна редица със стъкловидна подпора ZX-27 (подпора 1) Случай 2.jpg" }],
     "slideTitle": "Стъкловидни подпори ZX-27",
     "slideText": "Играе ролята на зъб, когато той липсва, а искаме мост - не протеза"
   },
@@ -109,5 +107,9 @@
   {
     "slideImgs": [{ "rotated": false, "img": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б).jpg" }],
     "slideTitle": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б)"
+  },
+  {
+    "slideImgs": [{ "rotated": false, "img": "IMG_4369.jpg" }, { "rotated": false, "img": "IMG_4368.jpg" }],
+    "slideTitle": "Избелване на зъби"
   }
 ]

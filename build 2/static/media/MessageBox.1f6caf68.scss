@@ -1,0 +1,52 @@
+.messageBoxHolder {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #456998;
+}
+
+.messageBox {
+  display: flex;
+  align-content: stretch;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  span {
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+  }
+}
+
+.hide {
+  animation-name: hide;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+.show {
+  animation-name: show;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes hide {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
