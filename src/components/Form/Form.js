@@ -10,8 +10,6 @@ class Form extends Component {
     super(props);
     this.context = StoreContext;
       
-    console.log(process.env);
-      console.log(process.env.NODE_ENV);
         this.state = {
             email: {
               value: '',
@@ -138,14 +136,6 @@ class Form extends Component {
       this.setState({ isSending: true });
 
       event.preventDefault();
-      console.log(
-        JSON.stringify({
-          email: this.state.email.value,
-          name: this.state.name.value,
-          message: this.state.message.value,
-          subject: this.state.subject.value
-        })
-      );
   
       return fetch(`${BASEURL}:${PORT}/${ENDPOINT}`, {
         method: "post",

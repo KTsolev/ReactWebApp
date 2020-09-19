@@ -89,9 +89,9 @@
 
   &__header {
     font-size: 2.500em;
-    font-family: ZnikomitNo24Thin;
+    font-family: "Library-soft";
     padding: 20px;
-    color: #444;
+    color: #535d94;
     position: absolute;
     top: 0.625em;
     width: 100%;
@@ -124,6 +124,10 @@
     background-position: center center;
     background-origin: content-box;
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
 
@@ -160,10 +164,6 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-}
-
-#contact {
-  background-size: contain;
 }
 
 .menu__toggle {
@@ -228,11 +228,13 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 30%;
+  max-width: 20em;
   padding: 10px;
   height: auto;
   transition: all 0.7s cubic-bezier(1, 0.005, 0.24, 1);
   transition-delay: 0.1s;
+  transform:  rotateX(-25deg) rotateY(-15deg);
+  opacity: 1;
 
   &--hidden {
     transform:  rotateX(-25deg) rotateY(45deg);
@@ -242,6 +244,7 @@
   &--shown {
     transform:  rotateX(-25deg) rotateY(-15deg);
     opacity: 1;
+    margin: 5% 20px;
   }
 }
 
@@ -312,10 +315,17 @@
   .menu__toggle {
     display: none;
   }
+
+  .navbar {
+    display: none;
+  }
   
   .paralax {
     background-size:120%;
     background-position: center;
+    div {
+      background-attachment: initial;       
+    }
   }
   .wrapper {
     flex-wrap: wrap-reverse;

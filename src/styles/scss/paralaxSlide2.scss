@@ -29,33 +29,41 @@
 
 .span__holder {
   position: absolute;
-  left: 40%;
   top: 30%;
+  width: 50%;
+  left: 30%;
   list-style-type: none;
 }
 
 .span__holder li span {
-  font-family: "ZnikomitNo24";
-  color: #262729;
+  font-family: "Library-soft";
+  color: #535d94;
   font-weight: normal;
   font-size: 20px;
-  opacity: 1;
 }
 
-@media (max-width: 450px) {
+.span__holder li {
+  padding: 10px 0;
+}
+
+#contact > .paralax > .contact {
+  background-size: cover;
+}
+
+@media (min-width: 1000px) {
   .span__holder {
-    left: 10%;
-  }
+    left: 35%;
+   }
 }
 
-.paralax .paralax--row > .parallaxElem:not(:first-child)  {
-  // position: absolute;
-  // left: 50%;
-  // top: 0;
-  // height: 30em;
-  // width: 20em;
-  // border: 1px solid red;
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // background-color: transparentize($color: #df39cb, $amount: 0.5); 
+@media (max-width: 449px) {
+
+  .span__holder li span {
+    font-size: 16px;
+  }
+  
+  .span__holder li {
+    padding: 5px 0;
+  }
+
 }

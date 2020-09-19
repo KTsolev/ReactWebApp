@@ -43,7 +43,6 @@ class App extends Component {
   scrollTo(event) {
     const section = document.querySelector(event.target.hash);
 
-    console.log(section);
     if(!section) return;
     if (!inView(section)) {
       section.scrollIntoView(true);

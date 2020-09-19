@@ -2,7 +2,7 @@
   "name": "react-web-app",
   "homepage": "http://anna-tsoleva.com",
   "version": "1.0.0",
-  "description": "\"New version of old website\"",
+  "description": "\"Dental office dr. Anna Tzolevа\"",
   "main": "index.js",
   "scripts": {
     "start": "node scripts/start.js",

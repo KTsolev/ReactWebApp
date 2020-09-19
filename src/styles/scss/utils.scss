@@ -1,0 +1,5 @@
+$context: 16; // Default
+
+@function convertPxToEm($pixels) {
+  @return #{$pixels/$context}em;
+}

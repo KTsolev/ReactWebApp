@@ -70,7 +70,7 @@
 }
 
 .paralax {
-  opacity: 0.85;
+  opacity: 0.95;
   position: relative;
 }
 .paralax--row {
@@ -83,9 +83,9 @@
 }
 .paralax__header {
   font-size: 2.5em;
-  font-family: ZnikomitNo24Thin;
+  font-family: "Library-soft";
   padding: 20px;
-  color: #444;
+  color: #535d94;
   position: absolute;
   top: 0.625em;
   width: 100%;
@@ -109,10 +109,14 @@
   height: 750px;
   min-width: 300px;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center center;
   background-origin: content-box;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container__img {
@@ -148,10 +152,6 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-}
-
-#contact {
-  background-size: contain;
 }
 
 .menu__toggle {
@@ -213,11 +213,13 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 30%;
+  max-width: 20em;
   padding: 10px;
   height: auto;
   transition: all 0.7s cubic-bezier(1, 0.005, 0.24, 1);
   transition-delay: 0.1s;
+  transform: rotateX(-25deg) rotateY(-15deg);
+  opacity: 1;
 }
 .navbar--hidden {
   transform: rotateX(-25deg) rotateY(45deg);
@@ -226,6 +228,7 @@
 .navbar--shown {
   transform: rotateX(-25deg) rotateY(-15deg);
   opacity: 1;
+  margin: 5% 20px;
 }
 
 .navbar li {
@@ -294,9 +297,16 @@
     display: none;
   }
 
+  .navbar {
+    display: none;
+  }
+
   .paralax {
     background-size: 120%;
     background-position: center;
+  }
+  .paralax div {
+    background-attachment: initial;
   }
 
   .wrapper {
@@ -448,6 +458,8 @@
 
 .slide__images div {
   margin: 2.125em 0;
+  align-self: stretch;
+  overflow: hidden;
 }
 
 @media (max-width: 520px) {
@@ -477,6 +489,11 @@
   .slide__list li,
 .slide__text span {
     padding: 0.475em 0;
+  }
+
+  .slide__container:nth-of-type(3) .slide__images .slide__img--rotated:nth-of-type(1),
+.slide__container:nth-of-type(3) .slide__images .slide__img--rotated:nth-of-type(2) {
+    transform: rotate(0deg);
   }
 }
 .image-holder {
@@ -541,6 +558,11 @@
   border: 1px ridge #fff;
   color: #fff;
   background-color: #3076b0;
+  border-radius: 15px;
+  padding: 15px 5px;
+}
+.form .sbm:hover {
+  cursor: pointer;
 }
 .form .sbm--disabled {
   background-color: #a8abad;
@@ -548,9 +570,10 @@
 .form input, .form textarea, .form div {
   width: 100%;
   height: 100%;
-  padding: 10px 5px;
+  padding: 15px 5px;
   margin: 15px 0;
   font-size: 16px;
+  border-radius: 15px;
 }
 .form input.error,
 .form textarea.error {
@@ -659,8 +682,8 @@
   }
 
   .header h3,
-.paralax__header {
-    font-size: 1.125em;
+#contact .paralax__header {
+    margin: 2.5em 0.313em;
   }
 }
 .form {
@@ -673,6 +696,11 @@
   border: 1px ridge #fff;
   color: #fff;
   background-color: #3076b0;
+  border-radius: 15px;
+  padding: 15px 5px;
+}
+.form .sbm:hover {
+  cursor: pointer;
 }
 .form .sbm--disabled {
   background-color: #a8abad;
@@ -680,9 +708,10 @@
 .form input, .form textarea, .form div {
   width: 100%;
   height: 100%;
-  padding: 10px 5px;
+  padding: 15px 5px;
   margin: 15px 0;
   font-size: 16px;
+  border-radius: 15px;
 }
 .form input.error,
 .form textarea.error {
@@ -726,9 +755,12 @@
   color: #222;
   height: 50px;
   width: 50px;
-  font-size: 26px;
+  font-size: 32px;
   text-align: center;
   margin: 10px auto;
+}
+.expand-area:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 520px) {
@@ -782,28 +814,39 @@
 
 .span__holder {
   position: absolute;
-  left: 40%;
   top: 30%;
+  width: 50%;
+  left: 30%;
   list-style-type: none;
 }
 
 .span__holder li span {
-  font-family: "ZnikomitNo24";
-  color: #262729;
+  font-family: "Library-soft";
+  color: #535d94;
   font-weight: normal;
   font-size: 20px;
-  opacity: 0;
 }
 
-.animated {
-  opacity: 1 !important;
-  -webkit-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
+.span__holder li {
+  padding: 10px 0;
 }
 
-@media (max-width: 450px) {
+#contact > .paralax > .contact {
+  background-size: cover;
+}
+
+@media (min-width: 1000px) {
   .span__holder {
-    left: 10%;
+    left: 35%;
+  }
+}
+@media (max-width: 449px) {
+  .span__holder li span {
+    font-size: 16px;
+  }
+
+  .span__holder li {
+    padding: 5px 0;
   }
 }
 
