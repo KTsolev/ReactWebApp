@@ -1,13 +1,13 @@
 .text-holder__article {
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: normal;
   color: #363636;
   text-align: left;
   justify-content: space-around;
-  padding: 5px 15px;
+  padding: 0.25em 1em;
   text-align: justify;
-  letter-spacing: -1px;
+  letter-spacing: -0.0625em;
 }
 .text-holder__header {
   padding: 1em 0;

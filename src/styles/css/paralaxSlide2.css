@@ -1,16 +1,8 @@
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .item {
   position: relative;
-  width: 220px;
-  height: 250px;
-  padding: 5px;
+  width: 13.75em;
+  height: 15.625em;
+  padding: 0.3125em;
 }
 
 .item img {
@@ -39,29 +31,29 @@
   font-family: "Library-soft";
   color: #535d94;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 
 .span__holder li {
-  padding: 10px 0;
+  padding: 0.625em 0;
 }
 
 #contact > .paralax > .contact {
   background-size: cover;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 62.5em) {
   .span__holder {
     left: 35%;
   }
 }
-@media (max-width: 449px) {
+@media (max-width: 28.125em) {
   .span__holder li span {
-    font-size: 16px;
+    font-size: 1em;
   }
 
   .span__holder li {
-    padding: 5px 0;
+    padding: 0.3125em 0;
   }
 }
 

@@ -15,30 +15,6 @@ export default class Slide extends Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.calcScroll.bind(this));
-    const firstEl = document.getElementsByClassName('slide__container')[0];
-    firstEl.classList.remove('slide__container--left');
-    firstEl.classList.remove('slide__container--right');
-
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.calcScroll.bind(this));
-  }
-
-  calcScroll() {
-    const elements = document.getElementsByClassName('slide__container');
-    for (let i = 0; i < elements.length; i++) {
-      let el = elements[i];
-      if (inView(el)) {
-        el.classList.add('slide__container--animated');
-      } else {
-        el.classList.remove('slide__container--animated');
-      }
-    }
-  }
-
   setClases(imgs) {
     // eslint-disable-next-line default-case
     switch(imgs.length) {
@@ -56,12 +32,11 @@ export default class Slide extends Component {
   }
 
   render() {
-    //classnames  index % 2 === 0 ? 'slide__container slide__container--left' : 'slide__container slide__container--right
     return <div id={this.props.ids} className="slide">
       {slides.map((slide, index) => {
           return <div
             key={uuidv1()}
-            className={index > 1 && index % 2 === 0 ? "slide__container slide__container--left" : "slide__container slide__container--right" }>
+            className="slide__container">
             <div className="slide__title">
               <span>{slide.slideTitle}</span>
             </div>

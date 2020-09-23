@@ -1,4 +1,6 @@
-.map-holder{
+@import '../../styles/scss/utils.scss';
+
+.map-holder {
   height: 34.375em;
   width: 100%;
   position: relative;
@@ -7,7 +9,6 @@
 .main {
   width: 100%;
   height: 100%;
-  padding: 15px 0;
 }
 
 .main::after {
@@ -24,15 +25,15 @@
 .calendar {
   background-color: #fff;
   list-style: none;
-  padding: 10px 25px;
-  font-size: 14px;
+  padding: em(10) em(25);
+  font-size: em(14);
   font-weight: normal;
   li {
     color:rgba(56, 0, 57,0.6);
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: em(450)) {
   .calendar,
   .form {
     float: none;

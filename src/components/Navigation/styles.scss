@@ -1,0 +1,222 @@
+@import '../../styles/scss/utils.scss';
+
+nav {
+    display: flex;
+    flex: 1;
+    position: relative;
+    justify-content: space-between;
+    background: #fff;
+    max-height: em(90);
+
+
+    .logo_holder {
+      display: flex;
+      flex: 0.4;
+      min-width: em(150);
+      max-width: em(250);
+      max-height: em(250);
+    }
+
+    .logo {
+      display: block;
+      width: 100%;
+      padding: em(8);
+      object-fit: cover;
+      height: auto;
+    }
+  }
+
+  .toggle-button {
+    position: absolute;
+    display: none;
+    top: 20%;
+    bottom: 20%;
+    right: 0;
+    width: em(52);
+    height: 100%;
+  }
+
+  .bar {
+    display: none;
+    height: em(4);
+    width: 100%;
+    margin: em(10) 0;
+    background-color: #50CEC4;
+
+  }
+
+  .menuItems {
+    display: flex;
+    flex: 1;
+    max-width: em(900);
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      padding: em(10);
+
+      i {
+        color: #50CEC4;
+        transform: scale(0,0) translate(em(22), em(22)) rotate(-45deg);
+        transition: all 0.5s ease-in-out;
+      }
+
+      a {
+        text-decoration: none;
+        color: #8f8f8f;
+        font-size: em(18);
+        font-weight: 400;
+        letter-spacing: em(-1);
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #50CEC4;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {   
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+
+      &:hover > i {   
+        transform: scale(1,1) translate(em(-2), em(-6)) rotate(0deg);
+      }
+    }
+
+    &--vertical {
+      position: absolute;
+      display: block;
+      width: em(150);
+      height: 0;
+      justify-content: flex-end;
+      transition-timing-function: linear;
+      transition-duration: 0.5s;
+      transition-property: height, opacity;
+      transition-delay: 0s, 0.5s;
+      background: #f9f9f9;
+      top: em(90);
+      right: 0;
+      z-index: -45;
+       
+      li {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: em(10) 0;
+     
+        a: {
+          text-align: right;
+          letter-spacing: em(-1);
+        }
+     
+        &:hover > i {   
+          transform: scale(1,1) translate(em(-4), em(-6)) rotate(0deg);
+        }
+        &:hover {
+          border-bottom: em(1) solid #b4b0b0;
+        }
+      }
+      
+    }
+  }
+
+  .hidden {
+    opacity: 0;
+    z-index: -23;
+    height: 0;
+  }
+
+  .shown {
+    opacity: 1 !important;
+    z-index: 45 !important;
+    height: auto !important;
+  }
+
+  @media (min-width: em(1300)) {
+    nav {
+      max-height: em(130);
+    }
+    .toggle-button, .bar {
+      display: none;
+    }
+    .menuItems {
+      li a {
+        font-size: em(24);
+      }
+      
+      &--vertical {
+        opacity: 0 !important;
+        z-index: -23 !important;
+      }
+    }
+  }
+
+
+  @media (min-width: em(751)) and (max-width: em(1259)) {
+    nav {
+      max-height: em(90);
+      .logo_holder {
+        max-height: em(90);
+        max-width: em(120);
+      }
+    }
+    .toggle-button, .bar {
+      display: none;
+    }
+    .menuItems {
+      li a {
+        font-size: em(16);
+      }
+      
+      &--vertical {
+        opacity: 0 !important;
+        z-index: -23 !important;
+      }
+    }
+  }
+
+
+  
+  @media (max-width: em(750)) {
+    nav {
+      max-height: em(90);
+      .logo_holder {
+        max-height: em(90);
+        max-width: em(120);
+        z-index: 45;
+      }
+    }
+   
+    .menuItems {
+      opacity: 0;
+      z-index: -23;
+      &--vertical {
+        li a {
+          font-size: em(14);
+        }
+      }
+    }
+    .toggle-button, 
+    .bar {
+      display: block;
+    }
+  }

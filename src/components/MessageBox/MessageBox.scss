@@ -1,8 +1,10 @@
+@import '../../styles/scss/utils.scss';
+
 .messageBoxHolder {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50px;
+  height: em(50);
   background-color: #456998;
 }
 
@@ -15,7 +17,7 @@
   height: 100%;
 
   span {
-      font-size: 14px;
+      font-size: em(14);
       text-align: center;
       color: #fff;
   }

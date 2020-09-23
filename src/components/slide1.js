@@ -19,7 +19,7 @@ class SlideComponent extends Component {
   render() {
     return (
       <section id={this.props.ids} className={this.klass} ref='header'>
-          <div className='contaniner'>
+          <div className='container'>
             <div className='container__img'>
               <ImageComponent 
                 src={this.imgs.certJPG} 

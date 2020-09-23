@@ -1,8 +1,10 @@
+@import '../../styles/scss/utils.scss';
+
 .sertificates {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
-  max-height: 280px;
+  padding: em(20);
+  max-height: em(280);
   overflow: hidden;
   -webkit-transition: max-height 0.5s ease-out;
   -moz-transition: max-height 0.5s ease-out;
@@ -18,24 +20,24 @@
   width: auto;
   margin: 0 auto;
   height: 100%;
-  padding: 2px;
+  padding: em(2);
 }
 
 .expand-area {
   display: block;
   color: #222;
-  height: 50px;
-  width: 50px;
-  font-size: 32px;
+  height: em(50);
+  width: em(50);
+  font-size: em(32);
   text-align: center;
-  margin: 10px auto;
+  margin: em(10) auto;
   &:hover {
       cursor: pointer
     }
 
 }
 
-@media (max-width: 520px) {
+@media (max-width: em(520)) {
   .sertificates--expanded {
     max-height: 450em;
   }

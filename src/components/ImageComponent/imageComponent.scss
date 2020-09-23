@@ -1,13 +1,17 @@
+
+@import '../../styles/scss/utils.scss';
+
 .image-holder {
     display: flex;
     flex-flow: column;
 
-    &__image {
-        height: 200px;
-        border: 1px solid #414040;
-        border-radius: 15px;
+   img {
+        width: 100%;
+        height: auto;
+        border: em(1) solid #414040;
+        border-radius: em(15);
         text-align: center;
-        padding: 5px;
+        padding: em(5);
       }
       &__box {
         display: block;
@@ -33,7 +37,7 @@
   }
 
   .item {
-    height: 450px;
+    height: em(450);
     position: relative;
     margin: 2%;
     overflow: hidden;
