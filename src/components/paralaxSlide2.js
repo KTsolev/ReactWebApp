@@ -18,7 +18,7 @@ class SlideComponent extends Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.calcScroll);
     window.addEventListener('scroll', this.triggerAnimation);
 

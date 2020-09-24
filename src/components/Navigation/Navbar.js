@@ -10,7 +10,7 @@ export const Navbar = (props) => {
     };
 
     const menuStyles = `menuItems menuItems--vertical ${showMenu ? 'hidden': 'shown' }`;
-console.log(showMenu, menuStyles)
+
     return (
         <>
         <nav>

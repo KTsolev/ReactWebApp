@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import slides from '../../data/slides.json';
+import { v1 as uuidv1 } from 'uuid';
 import services from '../../Services/Services';
 import './slide.scss';
 
-const uuidv1 = require('uuid/v1');
-
-const { importAll, inView } = services;
+const { importAll } = services;
 
 export default class Slide extends Component {
   constructor(props) {
@@ -35,46 +34,44 @@ export default class Slide extends Component {
     return <div id={this.props.ids} className="slide">
       {slides.map((slide, index) => {
           return <div
-            key={uuidv1()}
-            className="slide__container">
-            <div className="slide__title">
-              <span>{slide.slideTitle}</span>
-            </div>
-            <div className="slide__images">
-              {slide.slideImgs.map((item) =>
-                 <div
-                  key={uuidv1()}
-                  className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
-                  <img src={this.state.images[item.img]} alt="img" />
-                  <div className="slide__remarks-holder">
-                    <span className="slide__remarks">{item.remark}</span>
-                  </div>
-                </div>)}
-              {slide.imgs ? slide.imgs.map((item) =>
-                <div className="slide__images">
+              key={uuidv1()}
+              className="slide__container">
+              <div className="slide__title">
+                <span>{slide.slideTitle}</span>
+              </div>
+              <div className="slide__images">
+                {slide.slideImgs.map((item) =>
                   <div
                     key={uuidv1()}
                     className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
                     <img src={this.state.images[item.img]} alt="img" />
-                    <div className="slide__remarks-holder slide__remarks-holder--contra-rotated">
-                     <span className="slide__remarks">{item.remark}</span>
+                    <div className="slide__remarks-holder">
+                      <span className="slide__remarks">{item.remark}</span>
+                    </div>
+                  </div>)}
+                {slide.imgs ? slide.imgs.map((item) =>
+                  <div key={uuidv1()} className="slide__images">
+                    <div className={item.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
+                      <img src={this.state.images[item.img]} alt="img" />
+                      <div className="slide__remarks-holder slide__remarks-holder--contra-rotated">
+                      <span className="slide__remarks">{item.remark}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                ) : null }
-            </div>   
-            <div className="slide__text">
-              <span>{slide.slideText}</span>
-              <span>{slide.slideRemarks}</span>
-              {slide.slideList && slide.slideList.length > 0 ?
-                <ul className="slide__list">
-                  {slide.slideList.map((item) =>
-                    <li key={uuidv1()}>{item.listText}</li>
-                  )}
-                </ul> : null}
-            </div>
-          </div>;
-        })}
-      </div>;
+                  ) : null }
+              </div>   
+              <div className="slide__text">
+                <span>{slide.slideText}</span>
+                <span>{slide.slideRemarks}</span>
+                {slide.slideList && slide.slideList.length > 0 ?
+                  <ul className="slide__list">
+                    {slide.slideList.map((item) =>
+                      <li key={uuidv1()}>{item.listText}</li>
+                    )}
+                  </ul> : null}
+                    </div>
+            </div>;
+          })}
+        </div>;
   }
 }

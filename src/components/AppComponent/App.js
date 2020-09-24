@@ -24,7 +24,7 @@ class App extends Component {
     this.updatePredicate = this.updatePredicate.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('resize', this.updatePredicate);
   }
 
@@ -60,7 +60,7 @@ class App extends Component {
         <div className="main">
           <Navbar scrollTo={this.scrollTo} />
           <div>
-            <ParalaxSlide2 
+            <ParalaxSlide2
               ids='forme' 
               klass='paralax__header' 
               bgImages={['mama.jpg']} header='За Mен'/>
@@ -71,7 +71,7 @@ class App extends Component {
             <ParalaxSlide1 
               klass='content' 
               header='За Mен'/>
-            <ParalaxSlide2 
+            <ParalaxSlide2
               ids='cabinet' 
               klass='paralax__header paralax__header--lighter' 
               bgImages={[
@@ -85,7 +85,7 @@ class App extends Component {
               ids='cabinet' 
               klass='section content' 
               header='cabinet slide'/>  
-            <ParalaxSlide2 
+            <ParalaxSlide2
               ids='certificates' 
               klass='paralax__header'
               movable
@@ -94,7 +94,7 @@ class App extends Component {
             <SertificatesSlide
               klass='section content' 
               header='Сертификати'/>
-            <ParalaxSlide2 
+            <ParalaxSlide2
               ids='contact'
               klass='paralax__header' 
               textAnim={[
