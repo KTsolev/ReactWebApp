@@ -6,39 +6,37 @@ import ParalaxSlide2 from '../paralaxSlide2.js';
 import ContactSlide from '../ContactComponent/ContactSlide.js';
 import { Navbar } from '../Navigation/Navbar';
 import SertificatesSlide from '../SertificatesComponent/Sertificates.js';
+import MessageBox from '../MessageBox/MessageBox';
 import store from '../Store/StoreProvider';
 import services from '../../Services/Services';
 import './App.scss';
+import $ from 'jquery';
 
 const { StoreProvider } = store;
 const { inView } = services;
+
 // @ts-ignore
 class App extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    this.state = {
-      toggleMenu: false
-    };    
-    this.scrollTo = this.scrollTo.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.updatePredicate = this.updatePredicate.bind(this);
+    this.triggerAnimation=this.triggerAnimation.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.updatePredicate);
-  }
+  triggerAnimation (event) {
+    const el = document.getElementById('horizontal-scroll');
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePredicate);
-  }
-
-  updatePredicate() {
-    if(window.innerWidth <= 450) {
-      this.setState({ toggleMenu: false });
+    if (inView(el)) {
+      console.log('inview');
+      $(el).find('li').addClass('animated');
+    } else {
+      $(el).find('li').removeClass('animated');
+      el.scrollLeft = 0;
     }
+
   }
 
-  scrollTo(event) {
+
+  scrollTo (event) {
     const section = document.querySelector(event.target.hash);
 
     if(!section) return;
@@ -49,15 +47,10 @@ class App extends Component {
     }
   }
 
-  toggleMenu() {
-    this.setState({ toggleMenu: !this.state.toggleMenu });
-  }
-
   render() {
-    
     return (
       <StoreProvider>
-        <div className="main">
+        <div id="main" className="main" onScroll={this.triggerAnimation}>
           <Navbar scrollTo={this.scrollTo} />
           <div>
             <ParalaxSlide2
@@ -79,7 +72,8 @@ class App extends Component {
                 'IMG_0515.jpg', 
                 'IMG_0511.jpg', 
                 'IMG_0510.jpg', 
-                'IMG_0509.jpg']}
+                'IMG_0509.jpg',
+              ]}
               header='За Кабинета'/>
             <SlideComponent2 
               ids='cabinet' 
@@ -112,9 +106,10 @@ class App extends Component {
               klass='section content'/>
           </div>
         </div>
+        <MessageBox />
       </StoreProvider>
     );
   }
 }
 
-export default App;
+export default App;var body = document.body;

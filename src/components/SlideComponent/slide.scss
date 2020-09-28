@@ -1,24 +1,42 @@
 @import '../../styles/scss/utils.scss';
+.slide_holder {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  align-items: stretch;
+  scroll-snap-points-y: repeat(1000px);
+  scroll-snap-type: y mandatory;
+  h1, h3 {
+    text-align: center;
+  }
+}
+
+#indicator {
+  display: block;
+  position: absolute;
+  background-color: rgb(93, 214, 214);
+  height: em(4);
+  top: em(130);
+  left: 0;
+  width: 0;
+}
 
 .slide {
   display: flex;
-  flex-flow: column;
-  width: 100%;
-  height: 100%;
-  perspective: em(1000);
-  scroll-snap-type: x mandatory;
-
-  /* older spec implementation */
-  scroll-snap-destination: 0% 100%;
-  scroll-snap-points-x: repeat(100%);
-  transform-style: preserve-3d;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-snap-align: center;
 
   &__images {
     display: flex;
     flex-wrap: wrap;
     flex: 100% 1;
-    padding: 1.250em 0;
+    padding: 0.625em 0.625em;
     justify-content: space-around;
+    align-items: stretch;
   }
 
   &__images div {
@@ -28,23 +46,16 @@
 
   &__img {
     position: relative;
-    width: 30%;
-    height: 100%;
+    width: em(220);
+    height: em(180);
+    border: 1px solid #50CEC4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-clip: padding-box;
    
     &--rotated {
       transform: rotate(90deg);
-    }
-    &--four-in-view {
-      width: 25%;
-    }
-    &--three-in-view {
-      width: 33.33%;
-    }
-    &--half-in-view {
-      width: 50%;
-    }
-    &--full-in-view {
-      width: 100%;
     }
   }
 
@@ -55,20 +66,14 @@
 
   &__remarks-holder  {
     position: absolute;
-    opacity: 0;
     background-color: #7b7b7b94;
     left: 25%;
     bottom: em(10);
     width: 50%;
-    text-align: center;
-    color: #ff9199;
-    border-radius: 50%;
-    transform: scale(0);
     transition: all 1s ease-in-out;
 
     &--contra-rotated {
-      transform: scale(0) rotate(-90deg);
-      opacity: 0;
+      transform: rotate(-90deg);
       background-color: #7b7b7b94;
       left: 50%;
       bottom: 25%;
@@ -77,6 +82,7 @@
 
   .slide__remarks {
     text-align: center;
+    color: #50CEC4;
     width: 100%;
     height: 100%;
   }
@@ -97,7 +103,7 @@
     width: 100%;
     height: auto;
     text-align: center;
-    padding: 2.188em 0.625em;
+    padding: 0.625em 0.625em;
     
     span {
       font-size: 1.5em;
@@ -120,7 +126,7 @@
   &__text {
     width: 100%;
     height: auto;
-    padding: 2.188em 0.625em;
+    padding: 0.625em 0.625em;
 
     span {
       font-size: 1.250em;
@@ -131,13 +137,16 @@
     }
   }
 
-  &__text {
-    height: em(250);
-  }
-
   &__container {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    margin: em(4) em(10);
+    padding: em(20);
+    border: 1px solid rgba(66, 161, 161, 0.5);
+    border-radius: 15%;
     background: #f9f9f9;
     scroll-snap-align: start center;
     transition: all 1.2s 0.1s ease-in-out;
@@ -155,14 +164,22 @@
   .slide__container {
     margin: 1.875em 0;
   }
+
+  #indicator {
+    top: em(170)
+  }
   
   .slide__images {
      flex-flow: column;
   }
   .slide__img {
     width: 100%;
-    height: auto;
-    padding: em(10);
+    min-height: em(320);
+    padding: em(8);
+    border: none;
+    background-size: contain;
+    background-position: center;
+    background-clip: content-box;
   }
   .slide__list li,
   .slide__text span {
@@ -178,12 +195,15 @@
     padding: 0.475em 0;
   }
 
-  .slide__container:nth-of-type(3) {
-    .slide__images {
-       .slide__img--rotated:nth-of-type(1),
-       .--rotated:nth-of-type(2) {
-        transform: rotate(-0deg);
-      }
-    }
+  .slide__images,
+  .slide__text {
+    padding: 0.625em;
+  }
+
+  .slide__images > .slide__img:nth-of-type(3),
+      .slide__img:nth-of-type(4),
+      .slide__img:nth-of-type(5),
+      .slide__img:nth-of-type(6) {
+       display: none;
   }
 }

@@ -34,6 +34,7 @@ nav {
     right: 0;
     width: em(52);
     height: 100%;
+    padding: 0.125em 0.125em;
   }
 
   .bar {
@@ -103,7 +104,8 @@ nav {
     &--vertical {
       position: absolute;
       display: block;
-      width: em(150);
+      width: em(160);
+      padding: 0.125em 0.625em;
       height: 0;
       justify-content: flex-end;
       transition-timing-function: linear;
@@ -111,7 +113,7 @@ nav {
       transition-property: height, opacity;
       transition-delay: 0s, 0.5s;
       background: #f9f9f9;
-      top: em(90);
+      top: em(74);
       right: 0;
       z-index: -45;
        

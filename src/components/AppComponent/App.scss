@@ -9,9 +9,7 @@
     padding: 0;
     font-size: em(16);
     font-weight: 400;
-    scroll-behavior: auto !important;
-    overflow-y: auto;
-    background-color: #92b4ca;
+    background: #f9f9f9;
     font-family: Library-soft;
 }
 
@@ -22,8 +20,37 @@
   -webkit-box-sizing: border-box;
 }
 
-p, h1, h2, h3, h4, h5, span, a ul li {
-  letter-spacing: em(-1);
+p, h1, h2, h3, h4, h5, span, a, ul li {
+  letter-spacing: em(-1.3);
+}
+
+h1 {
+  font-size: em(24);
+  font-weight: '700';
+}
+
+h2 {
+  font-size: em(22);
+  font-weight: '600';
+}
+
+h3 {
+  font-size: em(20);
+  font-weight: '600';
+}
+
+h4 h5 {
+  font-size: em(18);
+  font-weight: '500';
+}
+
+p, span, a, ul li {
+  font-size: em(14);
+  font-weight: '500';
+}
+
+div, section, ul {
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -64,6 +91,8 @@ p, h1, h2, h3, h4, h5, span, a ul li {
 .main {
   max-width: 1200px;
   margin: 0 auto;
+  scroll-behavior: auto;
+  overflow-y: auto;
 }
 
 .container {
@@ -185,16 +214,8 @@ p, h1, h2, h3, h4, h5, span, a ul li {
 
 @media (max-width: em(450)) {
 
-  .paralax__header {
+  .__header {
     font-size: em(30);
-  }
-  
-  .paralax {
-    background-size:120%;
-    background-position: center;
-    div {
-      background-attachment: initial;       
-    }
   }
   
   .wrapper {

@@ -7,3 +7,12 @@ ValidationError: child "email" fails because ["email" is required]
 ValidationError: child "email" fails because ["email" is required]
 ValidationError: child "email" fails because ["email" is required]
 ValidationError: child "email" fails because ["email" is required]
+newPort: 8001
+TypeError: Joi.string(...).pattern is not a function
+newPort: 8001
+TypeError: Joi.pattern is not a function
+newPort: 8001
+TypeError: Joi.string(...).pattern is not a function
+newPort: 8001
+TypeError: Joi.string(...).pattern is not a function
+newPort: 8001

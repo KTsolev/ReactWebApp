@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 const importAll = (r) => {
   let images = [];
   r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
@@ -9,25 +7,14 @@ const importAll = (r) => {
 
 const inView = (el) => {
   if(!el) return;
-  const scroll = window.scrollY || window.pageYOffset;
-  const boundsTop = el.getBoundingClientRect().top + scroll;
-  const innerHeight = $(el).innerHeight();
-  const viewport = {
-    top: scroll,
-    bottom: scroll + innerHeight  
-  };
+  let rect = el.getBoundingClientRect();
 
-  const bounds = {
-    top: boundsTop,
-    bottom: (boundsTop + el.clientHeight),
-  };
-
-  if ((bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom)
-    || (bounds.top <= viewport.bottom && bounds.top >= viewport.top)) {
-    return true;
-  }
-
-  return false;
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+    );
 };
 
 const services = {

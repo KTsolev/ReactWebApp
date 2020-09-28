@@ -1,11 +1,15 @@
 [
   {
     "slideImgs": [
-      { "rotated": true, "img": "IMG_3342.jpg" },
-      { "rotated": true, "img": "IMG_0661.jpg" }, 
-      { "rotated": true, "img": "IMG_0686.jpg" }],
+      { "rotated": false, "img": "IMG_3342.jpg" },
+      { "rotated": false, "img": "IMG_0661.jpg" }, 
+      { "rotated": false, "img": "IMG_0686.jpg" },
+      { "rotated": true, "img": "IMG_0845.jpg" },
+      { "rotated": false, "img": "porcelonavi_faseti1.jpg" },
+      { "rotated": false, "img": "porcelonavi_faseti2.jpg" }
+    ],
     "slideTitle": "Порцеланови фасети",
-    "imgs": [{ "rotated": true ,"img": "IMG_0845.jpg" }],
+    "imgs": [{ "rotated": false ,"img": "IMG_0845.jpg" }],
     "slideText": "Когато искате подредена и блестяща усмивка, а сте пропуснали брекетите"
   },
   {
@@ -28,9 +32,9 @@
   },
   {
     "slideImgs": [
-      { "rotated": true, "img": "IMG_2473.jpg" },
-      { "rotated": true, "img": "IMG_2474.jpg" },
-      { "rotated": true, "img": "IMG_2479.jpg" }],
+      { "rotated": false, "img": "IMG_2473.jpg" },
+      { "rotated": false, "img": "IMG_2474.jpg" },
+      { "rotated": false, "img": "IMG_2479.jpg" }],
     "slideTitle": "Гласфибро Влакна",
     "slideText": "Гласфибро Влакна - възстановяване на липсващ зъб без пилене на съседните зъби."
   },
@@ -58,8 +62,8 @@
   
   {
     "slideImgs": [
-      {"rotated": false, "remark": "неправилно лекуван" ,"img": "Unknown-X-20190114-194122-XMBE6C4Q5MSI-3.jpg"}, 
-      {"rotated": false, "remark": "правилно лекуван" ,"img": "Unknown-X-20181108-171253-XFCFL9FDR4GD-4.jpg"}],
+      {"rotated": false, "remark": "неправилно лекуван" ,"img": "rentgen-teeth3.jpg"}, 
+      {"rotated": false, "remark": "правилно лекуван" ,"img": "rentgen-teeth4.jpg"}],
     "slideTitle": "Лечение на пулпити и преиодонтити",
     "slideText": "Модерната стоматология повелява лечение на зъбите, а не вадене!",
     "slideRemarks": "Кабинетът разполага с рентгенов апарат за дигитални зъбни снимки"
@@ -97,19 +101,52 @@
     "slideText": "Играе ролята на зъб, когато той липсва, а искаме мост - не протеза"
   },
   {
+    "slideImgs": [
+      { "rotated": false, "img": "shinirane_na_zubi1.jpg" }, 
+      { "rotated": false, "img": "shinirane_na_zubi2.jpg" }
+    ],
+    "slideTitle": "Шиниране на зъби"
+  },
+  {
     "slideImgs": [{ "rotated": false, "img": "IMG_0142.jpg" }],
     "slideTitle": "Цветни детски пломби"
   },
   {
-    "slideImgs": [{ "rotated": false, "img": "Възтановяване на зъбна редица с моделно лята протеза 1 Случай 2.jpg" }],
+    "slideImgs": [{ "rotated": false, "img": "Възтановяване_на_зъбна_редица.jpg" }],
     "slideTitle": "Възтановяване на зъбна редица с моделно лята протеза."
   },
   {
-    "slideImgs": [{ "rotated": false, "img": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б).jpg" }],
+    "slideImgs": [{ "rotated": false, "img": "Възтановяване_на_зъбна_редица_плакова_протеза1.jpg" }],
     "slideTitle": "Възтановяване на зъбна редица с плакова протеза с прозрачни куки протеза Случаи 1 (2б)"
   },
   {
-    "slideImgs": [{ "rotated": false, "img": "IMG_4369.jpg" }, { "rotated": false, "img": "IMG_4368.jpg" }],
+    "slideImgs": [
+      { "rotated": false, "img": "modelno-lqta-proteza1.jpg" },
+      { "rotated": false, "img": "modelno-lqta-proteza2.jpg" }
+    ],
+    "slideTitle": "Моделно лята протеза с естетични куки във видимата зона"
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "silanizaciq1.jpg" },
+      { "rotated": false, "img": "silanizaciq2.jpg" }
+    ],
+    "slideTitle": "Силанизация",
+    "slideText": "Силанизацията запечатване на постояните зъби с цел предпазване от развитие на кариес в детска възраст. Д-р Цолева участва в ежегодните безплатни кампании за силанизация."
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "IMG_4369.jpg" }, 
+      { "rotated": false, "img": "IMG_4368.jpg" }
+    ],
     "slideTitle": "Избелване на зъби"
+  },
+  {
+    "slideImgs": [
+      { "rotated": false, "img": "usmivka-s-minimalno-izpilqvane1.jpg" }, 
+      { "rotated": false, "img": "usmivka-s-minimalno-izpilqvane2.jpg" },
+      { "rotated": false, "img": "usmivka-s-minimalno-izpilqvane3.jpg" }
+    ],
+    "slideTitle": "Дизайн на усмивката с минимално инвазивно изпиляване"
   }
 ]
