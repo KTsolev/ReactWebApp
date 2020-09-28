@@ -6,7 +6,7 @@ const min = (str, len, errorMessage) => (str.length < len ? errorMessage : null)
 const max = (str, len, errorMessage) => (str.length > len ? errorMessage : null);
 const required = (str, errorMessage) => (!str && typeof str !== 'string' ? errorMessage : null); 
 const validEmail = (value, errorMessage) => { 
-    let regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]\{2,\})\$/i;
+    let regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return !regex.test(value) ? errorMessage : null;
 };
 
