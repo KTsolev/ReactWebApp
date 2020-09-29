@@ -11,6 +11,9 @@
     font-weight: 400;
     background: #f9f9f9;
     font-family: Library-soft;
+    &::-webkit-scrollbar { width: 0 !important }  
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
 }
 
 *,

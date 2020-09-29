@@ -28,6 +28,7 @@
   flex-flow: row;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-align: center;
 
   &__images {

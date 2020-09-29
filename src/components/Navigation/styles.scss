@@ -1,7 +1,7 @@
 @import '../../styles/scss/utils.scss';
 
 nav {
-    display: flex;
+    display: flex !important;
     flex: 1;
     position: relative;
     justify-content: space-between;
@@ -32,6 +32,7 @@ nav {
     top: 20%;
     bottom: 20%;
     right: 0;
+    z-index: 25;
     width: em(52);
     height: 100%;
     padding: 0.125em 0.125em;

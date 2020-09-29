@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import slides from '../../data/slides.json';
-import { v1 as uuidv1 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import services from '../../Services/Services';
 import { Card } from '../Card/Card';
 import './slide.scss';
@@ -19,49 +19,61 @@ export default class Slide extends Component {
       };
       this.resize=this.resize.bind(this);
       this.initiateHeights=this.initiateHeights.bind(this);
+      this.wheelHandler = this.wheelHandler.bind(this);
   }
 
   componentDidMount () {
-    const scrollSpeed = 25;
     const scroller = document.getElementById("slider");
-    const main = document.getElementById("main");
-    const indicator = document.getElementById('indicator');
     window.addEventListener('resize', this.initiateHeights);
+    scroller.addEventListener("mousewheel", this.wheelHandler, false);
+    scroller.addEventListener("wheel", this.wheelHandler, false);
 
-    const domRect = scroller.getBoundingClientRect();
-    scroller.addEventListener("mousewheel", e=>{
-      if (e.wheelDelta >= 0) {
-        scroller.scrollTop = domRect.bottom;
-      }
-      else {
-          scroller.scrollTop = main.offsetTop - scroller.scrollHeight;
-      }
-      // block if e.deltaY==0
-      if( !e.deltaY ) return;
-      // Set scrollDirection (-1 = up // 1 = down)
-      let scrollDirection = (e.deltaY > 0) ? 1 : -1;
-      // convert vertical scroll into horizontal
-      scroller.scrollLeft += scrollSpeed * scrollDirection;
-      let scrollLeft = Math.round(scroller.scrollLeft);
-      // calculate box total vertical scroll 
-      let maxScrollLeft = Math.round( scroller.scrollWidth - scroller.clientWidth );
-      // if element scroll has not finished scrolling
-      // prevent window to scroll
-      this.resize(indicator); 
-
-      if( 
-        (scrollDirection === -1  && scrollLeft > 0) ||
-        (scrollDirection === 1 && scrollLeft < maxScrollLeft ) 
-      ) e.preventDefault()
-      // done!
-      return true;
-    }, false);
   }
 
   componentWillUnmount () {
     let scroller = document.getElementById("slider");
-    scroller.removeEventListener("mousewheel");
+    scroller.removeEventListener("mousewheel", this.wheelHandler);
+    scroller.removeEventListener("wheel", this.wheelHandler);
     window.removeEventListener('resize', this.initiateHeights);
+  }
+
+  wheelHandler(e) {
+    const scrollSpeed = 25;
+    const scroller = document.getElementById("slider");
+    const main = document.getElementById("main");
+    const indicator = document.getElementById('indicator');
+    console.log('in handler');
+    const domRect = scroller.getBoundingClientRect();
+    if (e.wheelDelta >= 0) {
+      scroller.scrollTop = domRect.bottom;
+    }
+    else {
+        scroller.scrollTop = main.offsetTop - scroller.scrollHeight;
+    }
+    // block if e.deltaY==0
+    if( !e.deltaY ) return;
+    // Set scrollDirection (-1 = up // 1 = down)
+    let scrollDirection = (e.deltaY > 0) ? 1 : -1;
+    // convert vertical scroll into horizontal
+    scroller.scrollLeft += scrollSpeed * scrollDirection;
+    let scrollLeft = Math.round(scroller.scrollLeft);
+    // calculate box total vertical scroll 
+    let maxScrollLeft = Math.round( scroller.scrollWidth - scroller.clientWidth );
+    // if element scroll has not finished scrolling
+    // prevent window to scroll
+    this.resize(indicator); 
+
+    if( 
+      (scrollDirection === -1  && scrollLeft > 0) ||
+      (scrollDirection === 1 && scrollLeft < maxScrollLeft ) 
+    ) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('prevent default');
+
+    }
+    // done!
+    return true;
   }
 
   resize (e) {
@@ -78,6 +90,27 @@ export default class Slide extends Component {
 
 
   render() {
+    const options = {
+      random: [
+        0x10,
+        0x91,
+        0x56,
+        0xbe,
+        0xc4,
+        0xfb,
+        0xc1,
+        0xea,
+        0x71,
+        0xb4,
+        0xef,
+        0xe1,
+        0x67,
+        0x1c,
+        0x58,
+        0x36,
+      ],
+    };
+
     return <div id={this.props.ids} className="slide_holder">
         <h1>Портфолио</h1>
         <h3>Най-често практикувани случаи от д-р Анна Цолева</h3>
@@ -86,7 +119,7 @@ export default class Slide extends Component {
         <div className="slide__container">
              {slides.map((slide, index) => {
              return slide.slideImgs.map((elem) => <Card 
-                    key={uuidv1()}
+                    key={uuidv4(options)}
                     image={this.state.images[elem.img]}
                     rotated={elem.rotated}
                     title={slide.slideTitle}

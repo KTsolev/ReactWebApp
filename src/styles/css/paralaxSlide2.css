@@ -22,9 +22,12 @@
 .span__holder {
   position: absolute;
   top: 30%;
-  width: 50%;
   left: 30%;
   list-style-type: none;
+}
+
+.animated {
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 .span__holder li span {
@@ -36,20 +39,49 @@
 
 .span__holder li {
   padding: 0.625em 0;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0.625em auto;
+  letter-spacing: 0.15em;
 }
 
 #contact > .paralax > .contact {
   background-size: cover;
 }
 
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
 @media (min-width: 62.5em) {
   .span__holder {
     left: 35%;
+    width: 35%;
   }
 }
-@media (max-width: 28.125em) {
+@media (max-width: 35em) {
+  .span__holder {
+    width: 100%;
+    left: 5%;
+  }
+
   .span__holder li span {
-    font-size: 1em;
+    font-size: 0.875em;
   }
 
   .span__holder li {

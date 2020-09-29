@@ -31,9 +31,6 @@ class Form extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        console.log(process.env.BASE_URL);
-        console.log(process.env.PORT);
-        console.log(process.env.ENDPOINT);
     }
 
     handleChange(event) {
@@ -133,7 +130,7 @@ class Form extends Component {
     }
     
     handleSubmit(event) {
-      const BASEURL = process.env.BASEURL || "http://localhost";
+      const BASEURL = process.env.BASEURL || "http://www.anna-tsoleva.com";
       const PORT = process.env.PORT || 8001;
       const ENDPOINT = process.env.ENDPOINT || "mailme";
       this.setState({ isSending: true });

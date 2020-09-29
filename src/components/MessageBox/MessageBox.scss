@@ -39,17 +39,21 @@
 @keyframes hide {
   0%{
     opacity: 1;
+    z-index: 20;
   }
   100%{
     opacity: 0;
+    z-index: -5;
   }
 }
 
 @keyframes show {
   0%{
     opacity: 0;
+    z-index: -5;
   }
   100%{
     opacity: 1;
+    z-index: 20;
   }
 }

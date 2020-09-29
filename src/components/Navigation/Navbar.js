@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageComponent from '../ImageComponent/imageComponent';
 import './styles.scss';
 
 export const Navbar = (props) => {
     const [showMenu, setShowMenu] = useState(false);
 
+    useEffect (() => {
+        setShowMenu(false);
+    }, []);
+
+ 
     const onClickHandler = () => {
+        console.log('click handler', showMenu)
         setShowMenu(!showMenu);
     };
 
-    const menuStyles = `menuItems menuItems--vertical ${showMenu ? 'hidden': 'shown' }`;
+    const menuStyles = `menuItems menuItems--vertical ${showMenu ? 'shown': 'hidden' }`;
 
     return (
         <>
@@ -32,11 +38,11 @@ export const Navbar = (props) => {
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-tooth"></i>
-                <a data-item="За Мен" href="#forme">За Мен</a>
+                <a data-item="За&#32;Мен" href="#forme">За&#32;Мен</a>
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-clinic-medical"></i>
-                <a data-item="За Кабинета" href="#cabinet">За Кабинета</a>
+                <a data-item="За&#32;Кабинета" href="#cabinet">За&#32;Кабинета</a>
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-certificate"></i>
@@ -54,11 +60,11 @@ export const Navbar = (props) => {
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-tooth"></i>
-                <a data-item="За Мен" href="#forme">За Мен</a>
+                <a data-item="За&#32;Мен" href="#forme">За&#32;Мен</a>
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-clinic-medical"></i>
-                <a data-item="За Кабинета" href="#cabinet">За Кабинета</a>
+                <a data-item="За&#32;Кабинета" href="#cabinet">За&#32;Кабинета</a>
                 </li>
                 <li onClick={props.scrollTo}>
                 <i className="fas fa-certificate"></i>

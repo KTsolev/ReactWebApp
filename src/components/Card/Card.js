@@ -4,9 +4,8 @@ import './Card.scss';
 export const Card = (props) => {
     const {image, title, text, list, remarks} = props;
    
-    
     return (
-        <div className="card">
+        <div  className="card">
             <div className="card-image">
                 <img src={image} alt={title} />
             </div>
@@ -21,5 +20,5 @@ export const Card = (props) => {
             <div className="card-stats">
             </div>
         </div>
-    )
+    );
 }
