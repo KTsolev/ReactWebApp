@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import slides from '../../data/slides.json';
 import { v1 as uuidv1 } from 'uuid';
 import services from '../../Services/Services';
+import { Card } from '../Card/Card';
 import './slide.scss';
-import $ from 'jquery';
-import { Slider } from 'material-ui';
 
 const { importAll } = services;
 const html = document.documentElement;
@@ -29,16 +28,12 @@ export default class Slide extends Component {
     const indicator = document.getElementById('indicator');
     window.addEventListener('resize', this.initiateHeights);
 
-
     const domRect = scroller.getBoundingClientRect();
     scroller.addEventListener("mousewheel", e=>{
       if (e.wheelDelta >= 0) {
-        console.log('Scroll up');
         scroller.scrollTop = domRect.bottom;
       }
       else {
-          console.log('Scroll down');
-          console.log(main.offsetTop - scroller.scrollHeight);
           scroller.scrollTop = main.offsetTop - scroller.scrollHeight;
       }
       // block if e.deltaY==0
@@ -47,7 +42,6 @@ export default class Slide extends Component {
       let scrollDirection = (e.deltaY > 0) ? 1 : -1;
       // convert vertical scroll into horizontal
       scroller.scrollLeft += scrollSpeed * scrollDirection;
-      console.log(scroller.scrollLeft, scrollSpeed*scrollDirection);
       let scrollLeft = Math.round(scroller.scrollLeft);
       // calculate box total vertical scroll 
       let maxScrollLeft = Math.round( scroller.scrollWidth - scroller.clientWidth );
@@ -73,7 +67,6 @@ export default class Slide extends Component {
   resize (e) {
     const main = document.getElementById('slider')
     const scrolled = main.scrollLeft / main.scrollWidth;
-    console.log(scrolled);
     scrolled > 0 ? e.style.width = ((scrolled * 100)+ 7) + "%" : e.style.width = 0 + "%";
   }
 
@@ -90,48 +83,19 @@ export default class Slide extends Component {
         <h3>Най-често практикувани случаи от д-р Анна Цолева</h3>
         <div id="indicator"></div>
         <div id="slider" className="slide">
+        <div className="slide__container">
              {slides.map((slide, index) => {
-          return <div
-              key={uuidv1()}
-              className="slide__container">
-              <div className="slide__title">
-                <span>{slide.slideTitle}</span>
-              </div>
-              {slide.slideText && <div className="slide__text">
-                <span>{slide.slideText}</span>
-                {slide.slideRemarks && <span>{slide.slideRemarks}</span>}
-                {slide.slideList && slide.slideList.length > 0 ?
-                  <ul className="slide__list">
-                    {slide.slideList.map((item) =>
-                      <li key={uuidv1()}>{item.listText}</li>
-                    )}
-                  </ul> : null}
-              </div>}
-              <div className="slide__images">
-                {slide.slideImgs.map((elem) =>{
-                  let paddingTop= 0;
-                  const img = new Image();
-                  img.onload = function() {
-                    paddingTop= Math.ceil((this.height / this.width)*100);
-                  }
-                  img.src= this.state.images[elem.img];
-                
-                  return (<div
+             return slide.slideImgs.map((elem) => <Card 
                     key={uuidv1()}
-                    style={{
-                      height: elem.rotated ? '15em' : '20em',
-                      paddingTop: Math.ceil(paddingTop/16)+ 'em',
-                      backgroundImage: "url("+this.state.images[elem.img]+")"
-                    }}
-                    className={elem.rotated ? "slide__img slide__img--rotated" : "slide__img"}>
-                    <div className="slide__remarks-holder">
-                      <span className="slide__remarks">{elem.remark}</span>
-                    </div>
-                  </div>)
+                    image={this.state.images[elem.img]}
+                    rotated={elem.rotated}
+                    title={slide.slideTitle}
+                    text={slide.slideText}
+                    remarks={elem.remark}
+                    list={slide.slideList}
+                  />)
                 })}
-              </div>   
-            </div>;
-          })}
+          </div>;
         </div>
       </div>;
   }

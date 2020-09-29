@@ -134,8 +134,8 @@ class Form extends Component {
     
     handleSubmit(event) {
       const BASEURL = process.env.BASEURL || "http://localhost";
-      const PORT = process.env.PORT || 8000;
-      const ENDPOINT = process.env.ENDPOINT || "sendmail";
+      const PORT = process.env.PORT || 8001;
+      const ENDPOINT = process.env.ENDPOINT || "mailme";
       this.setState({ isSending: true });
 
       event.preventDefault();

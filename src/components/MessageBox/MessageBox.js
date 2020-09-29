@@ -8,7 +8,7 @@ class BoxMessage extends Component {
   render() {
       return <StoreContext.Consumer>
                {( context ) => {
-                 console.log(context);
+                 (context);
                  let box = <div className={context.state.showMessageBox ? 'messageBoxHolder show' : 'messageBoxHolder hide'}>
                       <div className="messageBox">
                         <span>{context.state.message}</span>

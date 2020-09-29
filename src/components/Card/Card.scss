@@ -1,0 +1,70 @@
+@import '../../styles/scss/utils.scss';
+
+.card {
+    display: grid;
+    grid-template-columns: em(300) ;
+    grid-template-rows: em(220)  em(200)  em(40) ;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: em(18) ;
+    background: white;
+    box-shadow: em(5)  em(5)  em(15) rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin: em(30);
+
+    &:hover {
+        transform: scale(1.15);
+        box-shadow: em(5)  em(5)  em(15) rgba(0,0,0,0.6);
+      }
+  }
+
+  .card-image {
+    grid-area: image;
+    border-top-left-radius: em(15);
+    border-top-right-radius: em(15);
+    img {
+      width: 100%;
+      height: auto;
+      max-height: em(220);
+      object-fit: fill;
+    }
+  }
+  .card-text {
+    grid-area: text;
+    padding: em(10);
+    
+    p {
+        color: grey;
+        font-size:em(14);
+        font-weight: 300;
+    }
+    h2 {
+        margin-top:em(10);
+        font-size:em(20);
+    }
+    ul li {
+      font-size: em(14);
+      text-align: left;
+      color: grey;
+    }
+  }
+  .card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: em(15);
+    border-bottom-right-radius: em(15);
+    background: rgb(86, 206, 228);
+
+    .stat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        padding: em(10);
+      }
+  }

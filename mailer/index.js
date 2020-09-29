@@ -49,10 +49,9 @@ const init = async (newport) => {
                 response.last = Date.now();
                 response.message = 'It works';
                 
-                console.log(response);
                 return h.response(response);
             } catch(err) {
-                writeToFile(error);
+                writeToFile(err);
                 throw err; 
             }
           }
