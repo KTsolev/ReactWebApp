@@ -1,3 +1,4 @@
+/* eslint-disable no-extend-native */
 'use strict';
 
 const path = require('path');
@@ -12,6 +13,14 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const envPublicUrl = process.env.PUBLIC_URL;
 
 function ensureSlash(path, needsSlash) {
+  if (!String.prototype.endsWith) {
+      String.prototype.endsWith = function(search, this_len) {
+          if (this_len === undefined || this_len > this.length) {
+              this_len = this.length;
+          }
+          return this.substring(this_len - search.length, this_len) === search;
+      };
+  } 
   const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
     return path.substr(path, path.length - 1);

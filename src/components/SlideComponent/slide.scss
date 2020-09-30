@@ -27,8 +27,6 @@
   display: flex;
   flex-flow: row;
   flex-wrap: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
   scroll-snap-align: center;
 
   &__images {
@@ -146,9 +144,17 @@
     min-height: 100%;
     margin: em(4) em(10);
     padding: em(20);
+    overflow-y: hidden;
+    overflow-x: auto;
     background: #f9f9f9;
     scroll-snap-align: start center;
     transition: all 1.2s 0.1s ease-in-out;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+    &::-webkit-scrollbar {
+      width: 0px;  /* remove scrollbar space */
+      background: transparent;  /* optional: just make scrollbar invisible */
+    }
   }
 
 }

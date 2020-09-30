@@ -6,22 +6,22 @@ nav {
     position: relative;
     justify-content: space-between;
     background: #fff;
-    max-height: em(90);
+    max-height: em(150);
+    height: em(90);
 
 
     .logo_holder {
       display: flex;
-      flex: 0.4;
-      min-width: em(150);
-      max-width: em(250);
-      max-height: em(250);
+      flex: 0.15;
+      min-width: em(90);
+      max-width: em(180);
+      height: em(90);
     }
 
     .logo {
       display: block;
       width: 100%;
-      padding: em(8);
-      object-fit: cover;
+      object-fit: fill;
       height: auto;
     }
   }
@@ -49,8 +49,7 @@ nav {
 
   .menuItems {
     display: flex;
-    flex: 1;
-    max-width: em(900);
+    flex: 0.85;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
@@ -156,12 +155,19 @@ nav {
 
   @media (min-width: em(1300)) {
     nav {
-      max-height: em(130);
+      height: em(180);
+      .logo_holder {
+        height: em(180);
+        max-width: em(180);
+      }
     }
     .toggle-button, .bar {
       display: none;
     }
     .menuItems {
+      li {
+        padding: 0.26em;
+      }
       li a {
         font-size: em(24);
       }
@@ -174,11 +180,12 @@ nav {
   }
 
 
-  @media (min-width: em(751)) and (max-width: em(1259)) {
+  @media (min-width: em(750)) and (max-width: em(1259)) {
     nav {
-      max-height: em(90);
+      height: em(150);
+      
       .logo_holder {
-        max-height: em(90);
+        height: em(150);
         max-width: em(120);
       }
     }
@@ -186,6 +193,9 @@ nav {
       display: none;
     }
     .menuItems {
+      li {
+        padding: 0.625em 0.26em;
+      }
       li a {
         font-size: em(16);
       }
@@ -199,17 +209,23 @@ nav {
 
 
   
-  @media (max-width: em(750)) {
+  @media (max-width: em(749)) {
     nav {
-      max-height: em(90);
+      max-height: em(100);
       .logo_holder {
-        max-height: em(90);
+        max-height: em(100);
         max-width: em(120);
         z-index: 45;
       }
     }
    
     .menuItems {
+      li {
+        padding: 0.625em 0.26em;
+      }
+      li a {
+        font-size: em(16);
+      }
       opacity: 0;
       z-index: -23;
       &--vertical {

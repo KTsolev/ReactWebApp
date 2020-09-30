@@ -15,6 +15,15 @@ class SlideComponent extends Component {
   }
 
   render() {
+    if (!String.prototype.endsWith) {
+      // eslint-disable-next-line no-extend-native
+      String.prototype.endsWith = function(search, this_len) {
+          if (this_len === undefined || this_len > this.length) {
+              this_len = this.length;
+          }
+          return this.substring(this_len - search.length, this_len) === search;
+      };
+    } 
     const bgImages = this.props.bgImages.map((image) => this.images[image]);
     const textAnim = this.props.textAnim ? this.props.textAnim.map((text, index) => {
       return <li key={index}>{text.split('').map((l,i) => <span key={i}>{l}</span>)}</li>;

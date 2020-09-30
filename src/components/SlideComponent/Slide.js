@@ -19,25 +19,25 @@ export default class Slide extends Component {
       };
       this.resize=this.resize.bind(this);
       this.initiateHeights=this.initiateHeights.bind(this);
-      this.wheelHandler = this.wheelHandler.bind(this);
+      this.onWheelHandler = this.onWheelHandler.bind(this);
   }
 
   componentDidMount () {
     const scroller = document.getElementById("slider");
     window.addEventListener('resize', this.initiateHeights);
-    scroller.addEventListener("mousewheel", this.wheelHandler, false);
-    scroller.addEventListener("wheel", this.wheelHandler, false);
+    scroller.addEventListener("mousewheel", this.onWheelHandler, false);
+    scroller.addEventListener("wheel", this.onWheelHandler, false);
 
   }
 
   componentWillUnmount () {
     let scroller = document.getElementById("slider");
-    scroller.removeEventListener("mousewheel", this.wheelHandler);
-    scroller.removeEventListener("wheel", this.wheelHandler);
+    scroller.removeEventListener("mousewheel", this.onWheelHandler);
+    scroller.removeEventListener("wheel", this.onWheelHandler);
     window.removeEventListener('resize', this.initiateHeights);
   }
 
-  wheelHandler(e) {
+  onWheelHandler(e) {
     const scrollSpeed = 25;
     const scroller = document.getElementById("slider");
     const main = document.getElementById("main");
@@ -56,12 +56,13 @@ export default class Slide extends Component {
     let scrollDirection = (e.deltaY > 0) ? 1 : -1;
     // convert vertical scroll into horizontal
     scroller.scrollLeft += scrollSpeed * scrollDirection;
-    let scrollLeft = Math.round(scroller.scrollLeft);
+    let scrollLeft = scroller.scrollLeft;
+    console.log(scroller.scrollLeft,  scrollSpeed * scrollDirection);
     // calculate box total vertical scroll 
     let maxScrollLeft = Math.round( scroller.scrollWidth - scroller.clientWidth );
     // if element scroll has not finished scrolling
     // prevent window to scroll
-    this.resize(indicator); 
+    this.resize(indicator);
 
     if( 
       (scrollDirection === -1  && scrollLeft > 0) ||
@@ -70,7 +71,6 @@ export default class Slide extends Component {
       e.preventDefault();
       e.stopPropagation();
       console.log('prevent default');
-
     }
     // done!
     return true;
@@ -111,25 +111,26 @@ export default class Slide extends Component {
       ],
     };
 
+
     return <div id={this.props.ids} className="slide_holder">
         <h1>Портфолио</h1>
         <h3>Най-често практикувани случаи от д-р Анна Цолева</h3>
         <div id="indicator"></div>
-        <div id="slider" className="slide">
-        <div className="slide__container">
-             {slides.map((slide, index) => {
-             return slide.slideImgs.map((elem) => <Card 
-                    key={uuidv4(options)}
-                    image={this.state.images[elem.img]}
-                    rotated={elem.rotated}
-                    title={slide.slideTitle}
-                    text={slide.slideText}
-                    remarks={elem.remark}
-                    list={slide.slideList}
-                  />)
-                })}
-          </div>;
+        <div className="slide">
+          <div id="slider" className="slide__container">
+              {slides.map((slide, index) => {
+              return slide.slideImgs.map((elem) => <Card 
+                      key={uuidv4(options)}
+                      image={this.state.images[elem.img]}
+                      rotated={elem.rotated}
+                      title={slide.slideTitle}
+                      text={slide.slideText}
+                      remarks={elem.remark}
+                      list={slide.slideList}
+                    />)
+                  })}
+            </div>
         </div>
-      </div>;
+      </div>
   }
 }
