@@ -47,8 +47,9 @@ p, span, a, ul li {
   font-weight: "500";
 }
 
-div, section, ul {
+body, div, section, ul {
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 @font-face {
@@ -86,6 +87,17 @@ div, section, ul {
   margin: 0 auto;
   scroll-behavior: auto;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+  /* Firefox 64 */
+  overflow: -moz-scrollbars-none;
+}
+.main::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
 }
 
 .container {
@@ -242,7 +254,6 @@ div, section, ul {
   display: flex;
   flex-flow: row;
   flex-wrap: nowrap;
-  overflow-x: scroll;
   scroll-snap-align: center;
 }
 .slide__images {
@@ -345,9 +356,21 @@ div, section, ul {
   min-height: 100%;
   margin: 0.25em 0.625em;
   padding: 1.25em;
+  overflow-y: hidden;
+  overflow-x: auto;
   background: #f9f9f9;
   scroll-snap-align: start center;
   transition: all 1.2s 0.1s ease-in-out;
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+  /* Firefox 64 */
+}
+.slide__container::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
 }
 
 .slide__images div {
@@ -526,29 +549,35 @@ div, section, ul {
 .hide {
   animation-name: hide;
   animation-duration: 2s;
+  z-index: -25;
   animation-timing-function: ease-out;
 }
 
 .show {
   animation-name: show;
   animation-duration: 2s;
+  z-index: 25;
   animation-timing-function: ease-in;
 }
 
 @keyframes hide {
   0% {
     opacity: 1;
+    z-index: 25;
   }
   100% {
     opacity: 0;
+    z-index: -25;
   }
 }
 @keyframes show {
   0% {
     opacity: 0;
+    z-index: -25;
   }
   100% {
     opacity: 1;
+    z-index: 25;
   }
 }
 .map-holder {
@@ -602,20 +631,20 @@ nav {
   position: relative;
   justify-content: space-between;
   background: #fff;
-  max-height: 5.625em;
+  max-height: 9.375em;
+  height: 5.625em;
 }
 nav .logo_holder {
   display: flex;
-  flex: 0.4;
-  min-width: 9.375em;
-  max-width: 15.625em;
-  max-height: 15.625em;
+  flex: 0.15;
+  min-width: 5.625em;
+  max-width: 11.25em;
+  height: 5.625em;
 }
 nav .logo {
   display: block;
   width: 100%;
-  padding: 0.5em;
-  object-fit: cover;
+  object-fit: fill;
   height: auto;
 }
 
@@ -625,6 +654,7 @@ nav .logo {
   top: 20%;
   bottom: 20%;
   right: 0;
+  z-index: 25;
   width: 3.25em;
   height: 100%;
   padding: 0.125em 0.125em;
@@ -640,8 +670,7 @@ nav .logo {
 
 .menuItems {
   display: flex;
-  flex: 1;
-  max-width: 56.25em;
+  flex: 0.85;
   justify-content: flex-end;
   align-items: center;
   list-style: none;
@@ -732,13 +761,20 @@ nav .logo {
 
 @media (min-width: 81.25em) {
   nav {
-    max-height: 8.125em;
+    height: 11.25em;
+  }
+  nav .logo_holder {
+    height: 11.25em;
+    max-width: 11.25em;
   }
 
   .toggle-button, .bar {
     display: none;
   }
 
+  .menuItems li {
+    padding: 0.26em;
+  }
   .menuItems li a {
     font-size: 1.5em;
   }
@@ -747,12 +783,12 @@ nav .logo {
     z-index: -23 !important;
   }
 }
-@media (min-width: 46.9375em) and (max-width: 78.6875em) {
+@media (min-width: 46.875em) and (max-width: 78.6875em) {
   nav {
-    max-height: 5.625em;
+    height: 9.375em;
   }
   nav .logo_holder {
-    max-height: 5.625em;
+    height: 9.375em;
     max-width: 7.5em;
   }
 
@@ -760,6 +796,9 @@ nav .logo {
     display: none;
   }
 
+  .menuItems li {
+    padding: 0.625em 0.26em;
+  }
   .menuItems li a {
     font-size: 1em;
   }
@@ -768,12 +807,12 @@ nav .logo {
     z-index: -23 !important;
   }
 }
-@media (max-width: 46.875em) {
+@media (max-width: 46.8125em) {
   nav {
-    max-height: 5.625em;
+    max-height: 6.25em;
   }
   nav .logo_holder {
-    max-height: 5.625em;
+    max-height: 6.25em;
     max-width: 7.5em;
     z-index: 45;
   }
@@ -781,6 +820,12 @@ nav .logo {
   .menuItems {
     opacity: 0;
     z-index: -23;
+  }
+  .menuItems li {
+    padding: 0.625em 0.26em;
+  }
+  .menuItems li a {
+    font-size: 1em;
   }
   .menuItems--vertical li a {
     font-size: 0.875em;
@@ -835,8 +880,11 @@ nav .logo {
 }
 .card {
   display: grid;
-  grid-template-columns: 18.75em;
-  grid-template-rows: 13.75em 12.5em 2.5em;
+  display: -ms-grid;
+  grid-template-columns: 20em;
+  grid-template-rows: 20em 13.75em 4.375em;
+  -ms-grid-columns: 20em;
+  -ms-grid-rows: 18.75em 13.75em 4.375em;
   grid-template-areas: "image" "text" "stats";
   border-radius: 1.125em;
   background: white;
@@ -845,7 +893,7 @@ nav .logo {
   text-align: center;
   transition: 0.5s ease;
   cursor: pointer;
-  margin: 1.875em;
+  margin: 0 0.9375em;
 }
 .card:hover {
   transform: scale(1.15);
@@ -853,6 +901,7 @@ nav .logo {
 }
 
 .card-image {
+  -ms-grid-area: image;
   grid-area: image;
   border-top-left-radius: 0.9375em;
   border-top-right-radius: 0.9375em;
@@ -860,15 +909,16 @@ nav .logo {
 .card-image img {
   width: 100%;
   height: auto;
-  max-height: 13.75em;
+  max-height: 15.625em;
   object-fit: fill;
 }
 
 .card-text {
   grid-area: text;
+  -ms-grid-area: text;
   padding: 0.625em;
 }
-.card-text p {
+.card-text p, .card-text span {
   color: grey;
   font-size: 0.875em;
   font-weight: 300;
@@ -882,9 +932,13 @@ nav .logo {
   text-align: left;
   color: grey;
 }
+.card-text .remark {
+  color: red;
+}
 
 .card-stats {
   grid-area: stats;
+  -ms-grid-area: stats;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -897,8 +951,68 @@ nav .logo {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: white;
+}
+
+.card-flex {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 20em;
+}
+
+.stats-flex {
+  display: flex;
+  width: 20em;
+  height: 4.375em;
+  border-bottom-left-radius: 0.9375em;
+  border-bottom-right-radius: 0.9375em;
+  background: #56cee4;
+}
+.stats-flex .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-flex {
+  display: flex;
+  flex-direction: column;
   padding: 0.625em;
+  min-width: 20em;
+  min-height: 13.75em;
+}
+.text-flex p, .text-flex span {
+  color: grey;
+  font-size: 0.875em;
+  font-weight: 300;
+}
+.text-flex h2 {
+  margin-top: 0.625em;
+  font-size: 1.25em;
+}
+.text-flex ul li {
+  font-size: 0.875em;
+  text-align: left;
+  color: grey;
+}
+.text-flex .remark {
+  color: red;
+}
+
+.image-flex {
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 0.9375em;
+  border-top-right-radius: 0.9375em;
+  min-width: 18.75em;
+  min-height: 10.375em;
+}
+.image-flex img {
+  width: 100%;
+  height: auto;
+  max-height: 15.625em;
+  object-fit: fill;
 }
 
 .sertificates {

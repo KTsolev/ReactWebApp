@@ -7,8 +7,8 @@
 
 # production
 /build
+build.zip
 /mailer/node_modules
-
 # misc
 .DS_Store
 .env.local
