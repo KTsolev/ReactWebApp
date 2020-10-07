@@ -146,7 +146,6 @@ body, div, section, ul {
   position: relative;
 
   &--row {
-    overflow: hidden;
     overflow-y: hidden;
     white-space: nowrap;
     -webkit-transition: all 2s; /* For Safari 3.1 to 6.0 */
@@ -208,6 +207,7 @@ body, div, section, ul {
 }
 
 @media (min-width: em(451)) and (max-width: em(650)) {
+
   #home {
     .container {
       flex-direction: column;
@@ -221,6 +221,9 @@ body, div, section, ul {
 }
 
 @media (max-width: em(450)) {
+  .paralax div {
+    background-attachment: scroll;
+  }
 
   .__header {
     font-size: em(30);

@@ -9,6 +9,10 @@ const { importAll } = services;
 const html = document.documentElement;
 let height = 0;
 let h = 0;
+let touchstartX = 0;
+let touchstartY = 0;
+let touchendX = 0;
+let touchendY = 0;
 
 
 export default class Slide extends Component {
@@ -20,6 +24,10 @@ export default class Slide extends Component {
       this.resize=this.resize.bind(this);
       this.initiateHeights=this.initiateHeights.bind(this);
       this.onWheelHandler = this.onWheelHandler.bind(this);
+      this.handleGesture = this.handleGesture.bind(this);
+      this.onTouchStart = this.onTouchStart.bind(this);
+      this.onTouchEnd = this.onTouchEnd.bind(this);
+      this.onTouchCancel = this.onTouchCancel.bind(this);
   }
 
   componentDidMount () {
@@ -27,22 +35,65 @@ export default class Slide extends Component {
     window.addEventListener('resize', this.initiateHeights);
     scroller.addEventListener("mousewheel", this.onWheelHandler, false);
     scroller.addEventListener("wheel", this.onWheelHandler, false);
-
+    scroller.addEventListener("touchstart", this.onTouchStart, false);
+    scroller.addEventListener("touchend", this.onTouchEnd, false);
+    scroller.addEventListener("touchcancel", this.onTouchCancel, false);
   }
+
 
   componentWillUnmount () {
     let scroller = document.getElementById("slider");
+    window.removeEventListener('resize', this.initiateHeights);
     scroller.removeEventListener("mousewheel", this.onWheelHandler);
     scroller.removeEventListener("wheel", this.onWheelHandler);
-    window.removeEventListener('resize', this.initiateHeights);
+    scroller.removeEventListener("touchstart", this.onTouchStart);
+    scroller.removeEventListener("touchend", this.onTouchEnd);
+    scroller.removeEventListener("touchcancel", this.onTouchCancel);
   }
+
+  onTouchStart (event) {
+      touchstartX = event.screenX;
+      touchstartY = event.screenY;
+  }
+
+  onTouchEnd (event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    this.handleGesture();
+ }
+
+ onTouchCancel () {
+    touchstartX = 0;
+    touchstartY = 0;
+  }
+
+  handleGesture() {
+    console.log(touchendX, touchstartX)
+    console.log(touchendY, touchstartY)
+
+    let swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        console.log(swiped + 'left!');
+    }
+    if (touchendX > touchstartX) {
+        console.log(swiped + 'right!');
+    }
+    if (touchendY < touchstartY) {
+        console.log(swiped + 'down!');
+    }
+    if (touchendY > touchstartY) {
+        console.log(swiped + 'left!');
+    }
+    if (touchendY === touchstartY) {
+        console.log('tap!');
+    }
+}
 
   onWheelHandler(e) {
     const scrollSpeed = 25;
     const scroller = document.getElementById("slider");
     const main = document.getElementById("main");
     const indicator = document.getElementById('indicator');
-    console.log('in handler');
     const domRect = scroller.getBoundingClientRect();
     if (e.wheelDelta >= 0) {
       scroller.scrollTop = domRect.bottom;
@@ -57,7 +108,6 @@ export default class Slide extends Component {
     // convert vertical scroll into horizontal
     scroller.scrollLeft += scrollSpeed * scrollDirection;
     let scrollLeft = scroller.scrollLeft;
-    console.log(scroller.scrollLeft,  scrollSpeed * scrollDirection);
     // calculate box total vertical scroll 
     let maxScrollLeft = Math.round( scroller.scrollWidth - scroller.clientWidth );
     // if element scroll has not finished scrolling
@@ -70,7 +120,6 @@ export default class Slide extends Component {
     ) {
       e.preventDefault();
       e.stopPropagation();
-      console.log('prevent default');
     }
     // done!
     return true;
@@ -85,7 +134,6 @@ export default class Slide extends Component {
   initiateHeights () {
     height = Math.max( document.body.scrollHeight, document.body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
     h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    console.log("heights were initialised:", height, h);
   }
 
 

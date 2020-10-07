@@ -26,7 +26,6 @@ class App extends Component {
     const el = document.getElementById('horizontal-scroll');
 
     if (inView(el)) {
-      ('inview');
       $(el).find('li').addClass('animated');
     } else {
       $(el).find('li').removeClass('animated');
@@ -112,4 +111,4 @@ class App extends Component {
   }
 }
 
-export default App;var body = document.body;
+export default App;
