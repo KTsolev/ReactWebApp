@@ -40,7 +40,7 @@
     "google-maps-react": "^1.1.2",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "material-ui": "^0.19.4",
     "muicss": "^0.9.30",
     "npm": "^6.4.1",
